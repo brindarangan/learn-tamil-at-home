@@ -1,0 +1,15 @@
+.DS_Store
+
+# Local environment and secrets
+.env
+.env.*
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Large downloaded datasets and scratch files
+dataset/
+
+# Optional generated audio exports
+generated-audio/

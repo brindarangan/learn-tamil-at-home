@@ -1,0 +1,220 @@
+{
+  "id": "lesson-01-home",
+  "eyebrow": "Spoken Tamil Web MVP",
+  "heroTitle": "Learn the Tamil you can actually say at home.",
+  "heroText": "A first lesson for English-dominant learners who want real conversation with family, without needing Tamil script.",
+  "panelLabel": "This module teaches",
+  "panelList": [
+    "Modern Chennai-style home Tamil",
+    "How to answer a parent when you get home",
+    "How to ask for food or water politely",
+    "How to ask someone to repeat or slow down"
+  ],
+  "lessonNumber": "Lesson 01",
+  "title": "Coming home and talking to family",
+  "description": "The lesson stays short on purpose. Listen, repeat, choose the best reply, then do a quick recall round. This version uses Chennai-leaning spoken Tamil that sounds natural in many urban home conversations.",
+  "dialect": "Modern Chennai home Tamil",
+  "audio": {
+    "mode": "hosted-files",
+    "ttsFallback": false,
+    "note": "This website is ready for hosted Chennai-style MP3s. Add your recordings to /audio/lesson-01/ to replace browser-generated playback."
+  },
+  "phrases": [
+    {
+      "id": "vandhutiya",
+      "transliteration": "vandhutiya?",
+      "script": "வந்துட்டியா?",
+      "meaning": "You're back? / You came home?",
+      "tone": "Warm, casual",
+      "useCase": "A common way a parent or sibling may check in when you arrive home.",
+      "note": "The literal translation sounds blunt in English, but in Tamil it often feels caring and normal.",
+      "audioSrc": "./audio/lesson-01/vandhutiya.mp3"
+    },
+    {
+      "id": "vandhen",
+      "transliteration": "aama, ippo dhaan vandhen",
+      "script": "ஆமா, இப்போ தான் வந்தேன்",
+      "meaning": "Yeah, I just got home.",
+      "tone": "Casual family reply",
+      "useCase": "Use this to answer someone asking if you just came in.",
+      "note": "The phrasing here is meant to feel like urban home Tamil from Chennai rather than formal textbook Tamil.",
+      "audioSrc": "./audio/lesson-01/vandhen.mp3"
+    },
+    {
+      "id": "saptiya",
+      "transliteration": "saptiya?",
+      "script": "சாப்பிட்டியா?",
+      "meaning": "Did you eat?",
+      "tone": "Caring family check-in",
+      "useCase": "A very common home question that often signals care, not just literal curiosity.",
+      "note": "Learners should recognize that this can function almost like a warm greeting at home.",
+      "audioSrc": "./audio/lesson-01/saptiya.mp3"
+    },
+    {
+      "id": "saapdala",
+      "transliteration": "illa, innum saapdala",
+      "script": "இல்ல, இன்னும் சாப்பிடல",
+      "meaning": "No, I haven't eaten yet.",
+      "tone": "Casual",
+      "useCase": "A natural answer when someone asks if you already ate.",
+      "note": "The casual ending here is common in speech.",
+      "audioSrc": "./audio/lesson-01/saapdala.mp3"
+    },
+    {
+      "id": "sapadu",
+      "transliteration": "saapadu irukka?",
+      "script": "சாப்பாடு இருக்கா?",
+      "meaning": "Is there food?",
+      "tone": "Home, casual",
+      "useCase": "Use at home when asking whether food is available.",
+      "note": "This works best in close family settings, not formal situations.",
+      "audioSrc": "./audio/lesson-01/saapadu-irukka.mp3"
+    },
+    {
+      "id": "tanni",
+      "transliteration": "konjam thanni kudunga",
+      "script": "கொஞ்சம் தண்ணி குடுங்க",
+      "meaning": "Please give me some water.",
+      "tone": "Respectful",
+      "useCase": "A polite request to a parent, elder, or host at home.",
+      "note": "The respectful ending matters here; it keeps the tone soft and appropriate.",
+      "audioSrc": "./audio/lesson-01/thanni-kudunga.mp3"
+    },
+    {
+      "id": "medhuva",
+      "transliteration": "konjam medhuva sollunga",
+      "script": "கொஞ்சம் மெதுவா சொல்லுங்க",
+      "meaning": "Please say it a little more slowly.",
+      "tone": "Respectful",
+      "useCase": "Use when someone speaks too fast and you need help.",
+      "note": "This is especially useful for heritage learners who understand some Tamil but miss fast speech.",
+      "audioSrc": "./audio/lesson-01/medhuva-sollunga.mp3"
+    },
+    {
+      "id": "puriyala",
+      "transliteration": "enakku puriyala",
+      "script": "எனக்கு புரியல",
+      "meaning": "I didn't understand.",
+      "tone": "Neutral, honest",
+      "useCase": "A quick way to say you missed what someone said.",
+      "note": "This is one of the highest-value survival phrases in the entire app.",
+      "audioSrc": "./audio/lesson-01/puriyala.mp3"
+    },
+    {
+      "id": "help",
+      "transliteration": "naan help pannava?",
+      "script": "நான் ஹெல்ப் பண்ணவா?",
+      "meaning": "Should I help?",
+      "tone": "Warm, casual",
+      "useCase": "Use when someone is cooking, cleaning, or getting something ready.",
+      "note": "Code-mixing with English words like 'help' is especially common in Chennai and other urban bilingual homes.",
+      "audioSrc": "./audio/lesson-01/help-pannava.mp3"
+    },
+    {
+      "id": "seri",
+      "transliteration": "seri, varen",
+      "script": "சரி, வரேன்",
+      "meaning": "Okay, I'm coming.",
+      "tone": "Casual",
+      "useCase": "A natural response when someone calls you from another room.",
+      "note": "Short, everyday replies like this make learners sound more natural very quickly.",
+      "audioSrc": "./audio/lesson-01/seri-varen.mp3"
+    },
+    {
+      "id": "nalla",
+      "transliteration": "romba nalla irukku",
+      "script": "ரொம்ப நல்லா இருக்கு",
+      "meaning": "It's really good.",
+      "tone": "Warm, appreciative",
+      "useCase": "Use this to compliment food, tea, or something prepared at home.",
+      "note": "This is useful because appreciation language matters in family settings.",
+      "audioSrc": "./audio/lesson-01/romba-nalla-irukku.mp3"
+    },
+    {
+      "id": "later",
+      "transliteration": "naan later pannren",
+      "script": "நான் லேட்டர் பண்றேன்",
+      "meaning": "I'll do it later.",
+      "tone": "Casual, modern spoken Tamil",
+      "useCase": "A common modern mixed-language home reply.",
+      "note": "Many Chennai households naturally mix English into spoken Tamil, so this sounds familiar and current.",
+      "audioSrc": "./audio/lesson-01/later-pannren.mp3"
+    }
+  ],
+  "dialogues": [
+    {
+      "prompt": "Your mom asks, 'saptiya?'",
+      "context": "She is checking in after you came home from work. Which reply sounds natural if you have not eaten yet?",
+      "correctIndex": 1,
+      "explanation": "This answer directly responds to the food question in natural spoken Tamil.",
+      "answers": [
+        "seri, varen",
+        "illa, innum saapdala",
+        "saapadu irukka?"
+      ]
+    },
+    {
+      "prompt": "An elder at home is speaking too fast.",
+      "context": "You understood part of the sentence but need them to repeat it more slowly. What should you say?",
+      "correctIndex": 2,
+      "explanation": "This is respectful and practical. It asks them to slow down without sounding abrupt.",
+      "answers": [
+        "naan later pannren",
+        "romba nalla irukku",
+        "konjam medhuva sollunga"
+      ]
+    },
+    {
+      "prompt": "You walk in and your dad asks, 'vandhutiya?'",
+      "context": "You want to answer naturally and let him know you just got in.",
+      "correctIndex": 0,
+      "explanation": "This reply fits the moment and sounds like a normal family exchange.",
+      "answers": [
+        "aama, ippo dhaan vandhen",
+        "konjam thanni kudunga",
+        "enakku puriyala"
+      ]
+    },
+    {
+      "prompt": "You want to compliment the food at dinner.",
+      "context": "Which phrase is the best warm, family-friendly response?",
+      "correctIndex": 1,
+      "explanation": "This is a broad compliment you can use often, especially for food made at home.",
+      "answers": [
+        "naan help pannava?",
+        "romba nalla irukku",
+        "saptiya?"
+      ]
+    }
+  ],
+  "recalls": [
+    {
+      "prompt": "Say: 'Please give me some water.'",
+      "transliteration": "konjam thanni kudunga",
+      "script": "கொஞ்சம் தண்ணி குடுங்க",
+      "note": "Choose the respectful ending when speaking to an elder or host.",
+      "phraseId": "tanni"
+    },
+    {
+      "prompt": "Say: 'I didn't understand.'",
+      "transliteration": "enakku puriyala",
+      "script": "எனக்கு புரியல",
+      "note": "A core phrase for staying calm in conversation.",
+      "phraseId": "puriyala"
+    },
+    {
+      "prompt": "Say: 'Yeah, I just got home.'",
+      "transliteration": "aama, ippo dhaan vandhen",
+      "script": "ஆமா, இப்போ தான் வந்தேன்",
+      "note": "Use this after someone checks that you came back.",
+      "phraseId": "vandhen"
+    },
+    {
+      "prompt": "Say: 'It's really good.'",
+      "transliteration": "romba nalla irukku",
+      "script": "ரொம்ப நல்லா இருக்கு",
+      "note": "A warm phrase to compliment food or tea at home.",
+      "phraseId": "nalla"
+    }
+  ]
+}

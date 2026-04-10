@@ -1,0 +1,155 @@
+{
+  "id": "lesson-openslr-experiment",
+  "eyebrow": "Open-Licensed Audio Experiment",
+  "heroTitle": "Test real native Tamil clips inside the lesson flow.",
+  "heroText": "This localhost version rebuilds the lesson experience around real open-licensed Tamil corpus audio. The clips are authentic, but they are not exact matches for the original home-conversation phrases.",
+  "panelLabel": "This experiment tests",
+  "panelList": [
+    "Real OpenSLR Tamil audio instead of browser-generated speech",
+    "How native read-speech clips feel inside the same lesson UI",
+    "Whether authenticity improves the learning experience even when the lines are not perfect home-dialogue matches"
+  ],
+  "lessonNumber": "Dataset Experiment",
+  "title": "Open-license native clip test",
+  "description": "This is the same app flow rebuilt around real OpenSLR SLR65 clips. The tradeoff is important: the audio is genuinely native Tamil, but the corpus is not a conversational home-Tamil library, so some lines feel more formal or less targeted than the original lesson.",
+  "dialect": "Tamil corpus audio from native speakers",
+  "audio": {
+    "mode": "hosted-files",
+    "ttsFallback": false,
+    "note": "This lesson uses real open-licensed WAV files extracted from OpenSLR SLR65. It is meant to test whether authentic native audio improves the experience, not to represent the final curriculum."
+  },
+  "source": {
+    "title": "OpenSLR SLR65 source",
+    "summary": "Audio clips in this lesson were extracted from the official OpenSLR SLR65 Tamil corpus and kept as original WAV files for local testing.",
+    "license": "CC BY-SA 4.0 (Attribution-ShareAlike 4.0 International)",
+    "attribution": "Source corpus: OpenSLR SLR65, 'Crowdsourced high-quality Tamil multi-speaker speech data set', copyright 2018-2019 Google, Inc.",
+    "notes": "These are native-speaker recordings, but the corpus is mostly read sentences rather than a curated conversational Chennai-family lesson. Use this page to judge authenticity and fit, not as the final product."
+  },
+  "phrases": [
+    {
+      "id": "learn-tamil",
+      "transliteration": "viraivil nandraaga Tamil pesa padithuviduven",
+      "script": "விரைவில் நன்றாக தமிழ் பேச படித்துவிடுவேன்",
+      "meaning": "Soon I will learn to speak Tamil well.",
+      "tone": "Aspirational, spoken",
+      "useCase": "Useful as a motivation line for a learner testing the app.",
+      "note": "This is one of the closest corpus lines to the app's actual purpose, even though it is not part of the original home lesson.",
+      "audioSrc": "./audio/openslr65/taf_09689_00776102170.wav"
+    },
+    {
+      "id": "many-gifts",
+      "transliteration": "niraiya parisugal vaangi irukken",
+      "script": "நிறைய பரிசுகள் வாங்கி இருக்கிறேன்",
+      "meaning": "I bought lots of gifts.",
+      "tone": "Everyday statement",
+      "useCase": "An example of a simple personal update that feels more natural than news-style Tamil.",
+      "note": "This clip is more usable for a learner app than many of the corpus's news-like sentences.",
+      "audioSrc": "./audio/openslr65/taf_09705_00733263598.wav"
+    },
+    {
+      "id": "parents-hide",
+      "transliteration": "pettroridam ethaiyum maraikka vendaam",
+      "script": "பெற்றோரிடம் எதையும் மறைக்க வேண்டாம்",
+      "meaning": "Don't hide anything from your parents.",
+      "tone": "Advice, family-oriented",
+      "useCase": "Relevant to the family theme, even though it is still more like a statement than a conversation turn.",
+      "note": "This line helps test whether family-related corpus audio feels more relevant to the app's audience.",
+      "audioSrc": "./audio/openslr65/taf_05572_01899541892.wav"
+    },
+    {
+      "id": "dont-answer",
+      "transliteration": "naan bathil solla virumbavillai",
+      "script": "நான் பதில் சொல்ல விரும்பவில்லை",
+      "meaning": "I don't want to answer.",
+      "tone": "Direct, firm",
+      "useCase": "Useful for hearing how a clean full-sentence response sounds in real native audio.",
+      "note": "This is not as warm as the original home lesson, but it gives us a clear native clip with natural pacing.",
+      "audioSrc": "./audio/openslr65/taf_09689_01755282040.wav"
+    },
+    {
+      "id": "reaction",
+      "transliteration": "ennada idhu, namma time sari illaiyennu ninaichen",
+      "script": "என்னடா இது நம்ம டைம் சரி இல்லையேன்னு நினைச்சேன்",
+      "meaning": "What is this, I thought our time wasn't going well.",
+      "tone": "Casual reaction",
+      "useCase": "This is one of the more colloquial-sounding clips in the corpus and useful for testing spoken feel.",
+      "note": "The wording is much more colloquial than most of the dataset, which makes it especially valuable for this experiment.",
+      "audioSrc": "./audio/openslr65/taf_09689_01658665959.wav"
+    },
+    {
+      "id": "family-happiness",
+      "transliteration": "kudumbaththil magizhchi undaagum",
+      "script": "குடும்பத்தில் மகிழ்ச்சி உண்டாகும்",
+      "meaning": "There will be happiness in the family.",
+      "tone": "Positive, family-focused",
+      "useCase": "Relevant as a family-oriented line for checking whether the emotional tone of native audio helps the experience.",
+      "note": "This is not a direct conversational reply, but it keeps the experiment tied to family vocabulary.",
+      "audioSrc": "./audio/openslr65/taf_01484_00666195125.wav"
+    }
+  ],
+  "dialogues": [
+    {
+      "prompt": "You want a learner-facing line that actually mentions speaking Tamil.",
+      "context": "Which clip is the most on-brand for a Tamil learning app experiment?",
+      "correctIndex": 0,
+      "explanation": "This is the most directly relevant line in the corpus for a Tamil learning context.",
+      "answers": [
+        "viraivil nandraaga Tamil pesa padithuviduven",
+        "naan bathil solla virumbavillai",
+        "kudumbaththil magizhchi undaagum"
+      ]
+    },
+    {
+      "prompt": "You want to test whether a family-oriented corpus clip feels usable in the app.",
+      "context": "Which line is most clearly tied to parents or family?",
+      "correctIndex": 2,
+      "explanation": "This line is the clearest family-related example in the extracted open-license set.",
+      "answers": [
+        "niraiya parisugal vaangi irukken",
+        "ennada idhu, namma time sari illaiyennu ninaichen",
+        "pettroridam ethaiyum maraikka vendaam"
+      ]
+    },
+    {
+      "prompt": "You want to hear the most casual-sounding reaction clip in the set.",
+      "context": "Which answer best fits that goal?",
+      "correctIndex": 1,
+      "explanation": "This line is more colloquial than the others and helps test spoken feel better than the more formal clips.",
+      "answers": [
+        "kudumbaththil magizhchi undaagum",
+        "ennada idhu, namma time sari illaiyennu ninaichen",
+        "naan bathil solla virumbavillai"
+      ]
+    }
+  ],
+  "recalls": [
+    {
+      "prompt": "Say: 'Soon I will learn to speak Tamil well.'",
+      "transliteration": "viraivil nandraaga Tamil pesa padithuviduven",
+      "script": "விரைவில் நன்றாக தமிழ் பேச படித்துவிடுவேன்",
+      "note": "This is the strongest mission-aligned clip in the extracted dataset set.",
+      "phraseId": "learn-tamil"
+    },
+    {
+      "prompt": "Say: 'I bought lots of gifts.'",
+      "transliteration": "niraiya parisugal vaangi irukken",
+      "script": "நிறைய பரிசுகள் வாங்கி இருக்கிறேன்",
+      "note": "A simple everyday statement with real corpus audio.",
+      "phraseId": "many-gifts"
+    },
+    {
+      "prompt": "Say: 'Don't hide anything from your parents.'",
+      "transliteration": "pettroridam ethaiyum maraikka vendaam",
+      "script": "பெற்றோரிடம் எதையும் மறைக்க வேண்டாம்",
+      "note": "This keeps the experiment connected to family vocabulary.",
+      "phraseId": "parents-hide"
+    },
+    {
+      "prompt": "Say: 'I don't want to answer.'",
+      "transliteration": "naan bathil solla virumbavillai",
+      "script": "நான் பதில் சொல்ல விரும்பவில்லை",
+      "note": "Good for hearing clean sentence pacing in a native clip.",
+      "phraseId": "dont-answer"
+    }
+  ]
+}

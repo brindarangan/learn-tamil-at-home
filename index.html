@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn Tamil at Home</title>
+    <meta
+      name="description"
+      content="A spoken Tamil web app for English-dominant learners who want natural Chennai-style family conversation without needing Tamil script."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow" id="heroEyebrow">Spoken Tamil Web MVP</p>
+          <h1 id="heroTitle">Learn the Tamil you can actually say at home.</h1>
+          <p class="hero-text" id="heroText">
+            A first lesson for English-dominant learners who want real
+            conversation with family, without needing Tamil script.
+          </p>
+          <div class="hero-actions">
+            <button class="primary-button" id="startLessonButton">
+              Start today's lesson
+            </button>
+            <label class="builder-toggle" for="scriptToggle">
+              <input type="checkbox" id="scriptToggle" />
+              Show Tamil script
+            </label>
+          </div>
+        </div>
+        <aside class="hero-panel">
+          <p class="panel-label" id="panelLabel">This module teaches</p>
+          <ul class="panel-list" id="panelList">
+            <li>Loading lesson details...</li>
+          </ul>
+          <p class="audio-note" id="audioNote"></p>
+          <div class="status-card" id="statusCard"></div>
+        </aside>
+      </header>
+
+      <main class="main-layout">
+        <section class="section intro-card" id="lessonAnchor">
+          <div>
+            <p class="section-kicker" id="lessonKicker">Lesson</p>
+            <h2 id="lessonTitle">Coming home and talking to family</h2>
+          </div>
+          <p id="lessonDescription">
+            The lesson stays short on purpose. Listen, repeat, choose the best
+            reply, then do a quick recall round.
+          </p>
+        </section>
+
+        <section class="section source-section" id="sourceSection" hidden>
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Source</p>
+              <h2 id="sourceTitle">Lesson audio source</h2>
+            </div>
+            <p id="sourceSummary"></p>
+          </div>
+          <div class="source-grid">
+            <div class="meta-chip">
+              <strong>License</strong>
+              <span id="sourceLicense"></span>
+            </div>
+            <div class="meta-chip">
+              <strong>Attribution</strong>
+              <span id="sourceAttribution"></span>
+            </div>
+            <div class="meta-chip">
+              <strong>Notes</strong>
+              <span id="sourceNotes"></span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section phrase-section">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Phrase Studio</p>
+              <h2>Build your core phrases</h2>
+            </div>
+            <p>
+              Tap a card to focus on one phrase. Use slow audio first, then
+              normal speed.
+            </p>
+          </div>
+
+          <div class="phrase-layout">
+            <div class="phrase-grid" id="phraseGrid"></div>
+            <article class="phrase-detail" id="phraseDetail" aria-live="polite"></article>
+          </div>
+        </section>
+
+        <section class="section dialogue-section">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Use It</p>
+              <h2>Choose the reply that fits the moment</h2>
+            </div>
+            <p>
+              These mini-scenes focus on the kind of Tamil learners hear from
+              family, not textbook conversations.
+            </p>
+          </div>
+
+          <article class="dialogue-card" id="dialogueCard">
+            <div class="dialogue-meta">
+              <span id="dialogueStepLabel"></span>
+              <span id="dialogueScoreLabel"></span>
+            </div>
+            <h3 id="dialoguePrompt"></h3>
+            <p class="dialogue-context" id="dialogueContext"></p>
+            <div class="answer-list" id="dialogueAnswers"></div>
+            <div class="feedback-card" id="dialogueFeedback"></div>
+            <button class="secondary-button" id="nextDialogueButton">
+              Next scene
+            </button>
+          </article>
+        </section>
+
+        <section class="section recall-section">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Recall</p>
+              <h2>Can you say it without help?</h2>
+            </div>
+            <p>
+              Read the English cue first. Say your answer out loud before you
+              reveal the Tamil.
+            </p>
+          </div>
+
+          <article class="recall-card" id="recallCard">
+            <p class="recall-label">English cue</p>
+            <h3 id="recallPrompt"></h3>
+            <div class="recall-answer" id="recallAnswer" hidden>
+              <p class="answer-transliteration" id="recallTransliteration"></p>
+              <p class="answer-script builder-only" id="recallScript"></p>
+              <p class="answer-note" id="recallNote"></p>
+            </div>
+            <div class="recall-actions">
+              <button class="primary-button" id="revealRecallButton">
+                Reveal answer
+              </button>
+              <button class="ghost-button" id="playRecallButton">
+                Play audio
+              </button>
+            </div>
+            <div class="rating-row" id="ratingRow" hidden>
+              <button class="rating-button" data-rating="again">Need another round</button>
+              <button class="rating-button" data-rating="good">I got that</button>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
