@@ -422,6 +422,55 @@ button:disabled {
   margin-top: 20px;
 }
 
+.word-breakdown {
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid rgba(31, 42, 39, 0.08);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.word-breakdown-header {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.word-breakdown-header strong {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-rust);
+}
+
+.word-breakdown-header span {
+  color: var(--ink-soft);
+}
+
+.word-breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.word-chip {
+  display: grid;
+  gap: 6px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(245, 236, 218, 0.8);
+}
+
+.word-term {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.word-meaning {
+  color: var(--ink-soft);
+  font-size: 0.94rem;
+}
+
 .meta-chip {
   padding: 14px 16px;
   border: 1px solid rgba(31, 42, 39, 0.08);

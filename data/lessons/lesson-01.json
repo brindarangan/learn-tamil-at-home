@@ -27,6 +27,10 @@
       "id": "vandhutiya",
       "transliteration": "vandhutiya?",
       "script": "வந்துட்டியா?",
+      "wordBreakdown": [
+        { "word": "vandhu", "meaning": "came / arrived" },
+        { "word": "tiya?", "meaning": "casual 'did you?' ending" }
+      ],
       "meaning": "You're back? / You came home?",
       "tone": "Warm, casual",
       "useCase": "A common way a parent or sibling may check in when you arrive home.",
@@ -36,6 +40,12 @@
       "id": "vandhen",
       "transliteration": "aama, ippo dhaan vandhen",
       "script": "ஆமா, இப்போ தான் வந்தேன்",
+      "wordBreakdown": [
+        { "word": "aama", "meaning": "yeah / yes" },
+        { "word": "ippo", "meaning": "now" },
+        { "word": "dhaan", "meaning": "just / exactly" },
+        { "word": "vandhen", "meaning": "I came" }
+      ],
       "meaning": "Yeah, I just got home.",
       "tone": "Casual family reply",
       "useCase": "Use this to answer someone asking if you just came in.",
@@ -45,6 +55,10 @@
       "id": "saptiya",
       "transliteration": "saptiya?",
       "script": "சாப்பிட்டியா?",
+      "ttsText": "சாப்பிட்டியா",
+      "wordBreakdown": [
+        { "word": "saptiya?", "meaning": "did you eat?" }
+      ],
       "meaning": "Did you eat?",
       "tone": "Caring family check-in",
       "useCase": "A very common home question that often signals care, not just literal curiosity.",
@@ -54,6 +68,11 @@
       "id": "saapdala",
       "transliteration": "illa, innum saapdala",
       "script": "இல்ல, இன்னும் சாப்பிடல",
+      "wordBreakdown": [
+        { "word": "illa", "meaning": "no" },
+        { "word": "innum", "meaning": "still / yet" },
+        { "word": "saapdala", "meaning": "haven't eaten" }
+      ],
       "meaning": "No, I haven't eaten yet.",
       "tone": "Casual",
       "useCase": "A natural answer when someone asks if you already ate.",
@@ -63,6 +82,10 @@
       "id": "sapadu",
       "transliteration": "saapadu irukka?",
       "script": "சாப்பாடு இருக்கா?",
+      "wordBreakdown": [
+        { "word": "saapadu", "meaning": "food / meal" },
+        { "word": "irukka?", "meaning": "is there?" }
+      ],
       "meaning": "Is there food?",
       "tone": "Home, casual",
       "useCase": "Use at home when asking whether food is available.",
@@ -72,6 +95,11 @@
       "id": "tanni",
       "transliteration": "konjam thanni kudunga",
       "script": "கொஞ்சம் தண்ணி குடுங்க",
+      "wordBreakdown": [
+        { "word": "konjam", "meaning": "a little / some" },
+        { "word": "thanni", "meaning": "water" },
+        { "word": "kudunga", "meaning": "please give" }
+      ],
       "meaning": "Please give me some water.",
       "tone": "Respectful",
       "useCase": "A polite request to a parent, elder, or host at home.",
@@ -81,6 +109,11 @@
       "id": "medhuva",
       "transliteration": "konjam medhuva sollunga",
       "script": "கொஞ்சம் மெதுவா சொல்லுங்க",
+      "wordBreakdown": [
+        { "word": "konjam", "meaning": "a little" },
+        { "word": "medhuva", "meaning": "slowly" },
+        { "word": "sollunga", "meaning": "please say / tell me" }
+      ],
       "meaning": "Please say it a little more slowly.",
       "tone": "Respectful",
       "useCase": "Use when someone speaks too fast and you need help.",
@@ -90,6 +123,10 @@
       "id": "puriyala",
       "transliteration": "enakku puriyala",
       "script": "எனக்கு புரியல",
+      "wordBreakdown": [
+        { "word": "enakku", "meaning": "to me / for me" },
+        { "word": "puriyala", "meaning": "don't understand" }
+      ],
       "meaning": "I didn't understand.",
       "tone": "Neutral, honest",
       "useCase": "A quick way to say you missed what someone said.",
@@ -99,6 +136,11 @@
       "id": "help",
       "transliteration": "naan help pannava?",
       "script": "நான் ஹெல்ப் பண்ணவா?",
+      "wordBreakdown": [
+        { "word": "naan", "meaning": "I" },
+        { "word": "help", "meaning": "help" },
+        { "word": "pannava?", "meaning": "shall I do?" }
+      ],
       "meaning": "Should I help?",
       "tone": "Warm, casual",
       "useCase": "Use when someone is cooking, cleaning, or getting something ready.",
@@ -108,6 +150,10 @@
       "id": "seri",
       "transliteration": "seri, varen",
       "script": "சரி, வரேன்",
+      "wordBreakdown": [
+        { "word": "seri", "meaning": "okay / alright" },
+        { "word": "varen", "meaning": "I'm coming" }
+      ],
       "meaning": "Okay, I'm coming.",
       "tone": "Casual",
       "useCase": "A natural response when someone calls you from another room.",
@@ -117,6 +163,11 @@
       "id": "nalla",
       "transliteration": "romba nalla irukku",
       "script": "ரொம்ப நல்லா இருக்கு",
+      "wordBreakdown": [
+        { "word": "romba", "meaning": "very / really" },
+        { "word": "nalla", "meaning": "good / nice" },
+        { "word": "irukku", "meaning": "it is" }
+      ],
       "meaning": "It's really good.",
       "tone": "Warm, appreciative",
       "useCase": "Use this to compliment food, tea, or something prepared at home.",
@@ -127,6 +178,11 @@
       "transliteration": "naa apparam pannren",
       "script": "நா அப்பறம் பண்றேன்",
       "ttsText": "நா அப்பறம் பண்றேன்",
+      "wordBreakdown": [
+        { "word": "naa", "meaning": "I" },
+        { "word": "apparam", "meaning": "later / afterwards" },
+        { "word": "pannren", "meaning": "I'll do" }
+      ],
       "meaning": "I'll do it later.",
       "tone": "Casual, everyday spoken Tamil",
       "useCase": "Use this when someone asks you to do something and you want to say you'll do it a bit later.",

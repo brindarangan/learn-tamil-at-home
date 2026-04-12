@@ -37,6 +37,19 @@ const state = {
   audioStatus: null,
 };
 
+const SPEED_PRESETS = {
+  slow: {
+    mediaRate: 0.65,
+    speechRate: 0.72,
+    label: "slow",
+  },
+  normal: {
+    mediaRate: 1,
+    speechRate: 0.92,
+    label: "normal",
+  },
+};
+
 const playback = {
   audio: new Audio(),
   objectUrl: null,
@@ -294,11 +307,34 @@ function renderPhraseGrid() {
 function renderPhraseDetail() {
   const phrase = getActivePhrase();
   const hasAudio = phraseHasPlayableAudio(phrase);
+  const wordBreakdown = Array.isArray(phrase.wordBreakdown) ? phrase.wordBreakdown : [];
   const audioLabel = (state.lesson.audio || {}).mode === "elevenlabs-local"
     ? "Generated locally via ElevenLabs"
     : hasAudio
       ? "Hosted audio file"
       : "No clip linked yet";
+  const wordBreakdownMarkup = wordBreakdown.length
+    ? `
+      <div class="word-breakdown">
+        <div class="word-breakdown-header">
+          <strong>Word by word</strong>
+          <span>Quick gloss for the phrase pieces</span>
+        </div>
+        <div class="word-breakdown-grid">
+          ${wordBreakdown
+            .map(
+              (item) => `
+                <div class="word-chip">
+                  <span class="word-term">${item.word}</span>
+                  <span class="word-meaning">${item.meaning}</span>
+                </div>
+              `,
+            )
+            .join("")}
+        </div>
+      </div>
+    `
+    : "";
 
   phraseDetail.innerHTML = `
     <div class="detail-header">
@@ -312,6 +348,7 @@ function renderPhraseDetail() {
       <button class="sound-button" type="button" data-action="normal" ${hasAudio ? "" : "disabled"}>Play normal</button>
       <button class="ghost-button" type="button" data-action="studied">Mark practiced</button>
     </div>
+    ${wordBreakdownMarkup}
     <div class="meta-grid">
       <div class="meta-chip">
         <strong>Tone</strong>
@@ -441,33 +478,42 @@ function advanceRecall(rating) {
 function stopPlayback() {
   playback.audio.pause();
   playback.audio.currentTime = 0;
+  playback.audio.onended = null;
+  playback.audio.onerror = null;
+  playback.audio.onloadedmetadata = null;
   if (playback.objectUrl) {
     URL.revokeObjectURL(playback.objectUrl);
     playback.objectUrl = null;
   }
 }
 
-function playHostedAudio(src, playbackRate = 1) {
+function applyPlaybackRate(audio, playbackRate = 1) {
+  audio.defaultPlaybackRate = playbackRate;
+  audio.playbackRate = playbackRate;
+}
+
+function playMediaAudio(src, playbackRate = 1, options = {}) {
   return new Promise((resolve, reject) => {
-    stopPlayback();
+    if (!options.skipStopPlayback) {
+      stopPlayback();
+    }
     playback.audio.src = src;
-    playback.audio.playbackRate = playbackRate;
+    applyPlaybackRate(playback.audio, playbackRate);
+
+    playback.audio.onloadedmetadata = () => {
+      applyPlaybackRate(playback.audio, playbackRate);
+    };
     playback.audio.onended = () => resolve();
     playback.audio.onerror = () => reject(new Error(`Audio file could not be loaded: ${src}`));
+    playback.audio.load();
     playback.audio.play().catch(reject);
   });
 }
 
 function playBlobAudio(blob, playbackRate = 1) {
-  return new Promise((resolve, reject) => {
-    stopPlayback();
-    playback.objectUrl = URL.createObjectURL(blob);
-    playback.audio.src = playback.objectUrl;
-    playback.audio.playbackRate = playbackRate;
-    playback.audio.onended = () => resolve();
-    playback.audio.onerror = () => reject(new Error("Generated audio could not be played."));
-    playback.audio.play().catch(reject);
-  });
+  stopPlayback();
+  playback.objectUrl = URL.createObjectURL(blob);
+  return playMediaAudio(playback.objectUrl, playbackRate, { skipStopPlayback: true });
 }
 
 function getTamilVoice() {
@@ -502,7 +548,7 @@ function speakPhraseFallback(phrase, rate = 0.92) {
 }
 
 async function playPhrase(phrase, speed = "normal") {
-  const playbackRate = speed === "slow" ? 0.82 : 1;
+  const speedPreset = SPEED_PRESETS[speed] || SPEED_PRESETS.normal;
   const audioConfig = state.lesson.audio || {};
 
   if (audioConfig.mode === "elevenlabs-local") {
@@ -523,8 +569,8 @@ async function playPhrase(phrase, speed = "normal") {
         return;
       }
       const blob = await response.blob();
-      await playBlobAudio(blob, playbackRate);
-      renderAudioNote(`Generated local ElevenLabs audio for "${phrase.transliteration}".`);
+      await playBlobAudio(blob, speedPreset.mediaRate);
+      renderAudioNote(`Playing ${speedPreset.label} local ElevenLabs audio for "${phrase.transliteration}".`);
       return;
     } catch (error) {
       renderAudioNote(`Could not reach the local ElevenLabs endpoint. Make sure serve.py is running. ${error.message}`);
@@ -534,8 +580,8 @@ async function playPhrase(phrase, speed = "normal") {
 
   if (phrase.audioSrc) {
     try {
-      await playHostedAudio(phrase.audioSrc, playbackRate);
-      renderAudioNote(`Playing hosted lesson audio for "${phrase.transliteration}".`);
+      await playMediaAudio(phrase.audioSrc, speedPreset.mediaRate);
+      renderAudioNote(`Playing ${speedPreset.label} hosted lesson audio for "${phrase.transliteration}".`);
       return;
     } catch (error) {
       const allowTtsFallback = Boolean(state.lesson.audio?.ttsFallback);
@@ -546,7 +592,7 @@ async function playPhrase(phrase, speed = "normal") {
     }
   }
 
-  const usedFallback = speakPhraseFallback(phrase, speed === "slow" ? 0.76 : 0.92);
+  const usedFallback = speakPhraseFallback(phrase, speedPreset.speechRate);
 
   if (usedFallback) {
     renderAudioNote("Using browser text-to-speech as a temporary fallback. Replace it with hosted MP3s before sharing the website.");
