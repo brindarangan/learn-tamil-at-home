@@ -1,11 +1,31 @@
-const DEFAULT_LESSON = "lesson-openslr";
+const DEFAULT_LESSON = "lesson-01";
 const LESSONS = {
   "lesson-01": "./data/lessons/lesson-01.json",
+  "lesson-02": "./data/lessons/lesson-02.json",
+  "lesson-03": "./data/lessons/lesson-03.json",
   "lesson-openslr": "./data/lessons/lesson-openslr.json",
 };
+const LESSON_TAB_ITEMS = [
+  {
+    key: "lesson-01",
+    label: "Lesson 1",
+    summary: "Coming home and talking to family",
+  },
+  {
+    key: "lesson-02",
+    label: "Lesson 2",
+    summary: "Common family questions and replies",
+  },
+  {
+    key: "lesson-03",
+    label: "Lesson 3",
+    summary: "Core verbs and sentence patterns",
+  },
+];
 
 const state = {
   lesson: null,
+  lessonKey: DEFAULT_LESSON,
   activePhraseId: null,
   dialogueIndex: 0,
   dialogueLocked: false,
@@ -14,10 +34,12 @@ const state = {
   showScript: false,
   studied: [],
   recallRatings: [],
+  audioStatus: null,
 };
 
 const playback = {
   audio: new Audio(),
+  objectUrl: null,
 };
 
 const heroEyebrow = document.getElementById("heroEyebrow");
@@ -38,6 +60,7 @@ const phraseGrid = document.getElementById("phraseGrid");
 const phraseDetail = document.getElementById("phraseDetail");
 const statusCard = document.getElementById("statusCard");
 const audioNote = document.getElementById("audioNote");
+const lessonTabs = document.getElementById("lessonTabs");
 const scriptToggle = document.getElementById("scriptToggle");
 const startLessonButton = document.getElementById("startLessonButton");
 
@@ -82,6 +105,7 @@ function saveState(key, value) {
 
 async function loadLesson() {
   const lessonKey = new URLSearchParams(window.location.search).get("lesson") || DEFAULT_LESSON;
+  state.lessonKey = lessonKey;
   const lessonPath = LESSONS[lessonKey] || LESSONS[DEFAULT_LESSON];
   const response = await fetch(lessonPath);
 
@@ -136,6 +160,37 @@ function renderLessonChrome() {
   renderSourceSection();
 }
 
+function urlForLesson(key) {
+  const url = new URL(window.location.href);
+  if (key === DEFAULT_LESSON) {
+    url.searchParams.delete("lesson");
+  } else {
+    url.searchParams.set("lesson", key);
+  }
+  return url.toString();
+}
+
+function renderLessonTabs() {
+  if (!lessonTabs) {
+    return;
+  }
+
+  lessonTabs.innerHTML = "";
+  LESSON_TAB_ITEMS.forEach((item) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `lesson-tab ${state.lessonKey === item.key ? "is-active" : ""}`;
+    button.innerHTML = `
+      <strong>${item.label}</strong>
+      <span>${item.summary}</span>
+    `;
+    button.addEventListener("click", () => {
+      window.location.href = urlForLesson(item.key);
+    });
+    lessonTabs.appendChild(button);
+  });
+}
+
 function renderSourceSection() {
   if (!state.lesson.source) {
     sourceSection.hidden = true;
@@ -184,7 +239,31 @@ function renderAudioNote(customMessage) {
   }
 
   const audioConfig = state.lesson.audio || {};
+  if (audioConfig.mode === "elevenlabs-local") {
+    if (!state.audioStatus) {
+      audioNote.textContent = "Checking local ElevenLabs setup...";
+      return;
+    }
+
+    if (!state.audioStatus.configured) {
+      const missing = (state.audioStatus.missing || []).join(", ");
+      audioNote.textContent = `Local ElevenLabs audio is not configured yet. Missing: ${missing}. Add them in .env.local and run serve.py.`;
+      return;
+    }
+
+    audioNote.textContent = `Local ElevenLabs is ready. Voice ID: ${state.audioStatus.voice_id}. Model: ${state.audioStatus.model_id}.`;
+    return;
+  }
+
   audioNote.textContent = audioConfig.note || "Add hosted audio clips for a consistent website experience.";
+}
+
+function phraseHasPlayableAudio(phrase) {
+  const audioConfig = state.lesson.audio || {};
+  if (audioConfig.mode === "elevenlabs-local") {
+    return true;
+  }
+  return Boolean(phrase.audioSrc);
 }
 
 function renderPhraseGrid() {
@@ -214,7 +293,12 @@ function renderPhraseGrid() {
 
 function renderPhraseDetail() {
   const phrase = getActivePhrase();
-  const hasAudio = Boolean(phrase.audioSrc);
+  const hasAudio = phraseHasPlayableAudio(phrase);
+  const audioLabel = (state.lesson.audio || {}).mode === "elevenlabs-local"
+    ? "Generated locally via ElevenLabs"
+    : hasAudio
+      ? "Hosted audio file"
+      : "No clip linked yet";
 
   phraseDetail.innerHTML = `
     <div class="detail-header">
@@ -239,7 +323,7 @@ function renderPhraseDetail() {
       </div>
       <div class="meta-chip">
         <strong>Audio</strong>
-        <span>${hasAudio ? "Hosted MP3 expected" : "No clip linked yet"}</span>
+        <span>${audioLabel}</span>
       </div>
     </div>
     <p class="detail-note">${phrase.note}</p>
@@ -357,6 +441,10 @@ function advanceRecall(rating) {
 function stopPlayback() {
   playback.audio.pause();
   playback.audio.currentTime = 0;
+  if (playback.objectUrl) {
+    URL.revokeObjectURL(playback.objectUrl);
+    playback.objectUrl = null;
+  }
 }
 
 function playHostedAudio(src, playbackRate = 1) {
@@ -366,6 +454,18 @@ function playHostedAudio(src, playbackRate = 1) {
     playback.audio.playbackRate = playbackRate;
     playback.audio.onended = () => resolve();
     playback.audio.onerror = () => reject(new Error(`Audio file could not be loaded: ${src}`));
+    playback.audio.play().catch(reject);
+  });
+}
+
+function playBlobAudio(blob, playbackRate = 1) {
+  return new Promise((resolve, reject) => {
+    stopPlayback();
+    playback.objectUrl = URL.createObjectURL(blob);
+    playback.audio.src = playback.objectUrl;
+    playback.audio.playbackRate = playbackRate;
+    playback.audio.onended = () => resolve();
+    playback.audio.onerror = () => reject(new Error("Generated audio could not be played."));
     playback.audio.play().catch(reject);
   });
 }
@@ -403,6 +503,34 @@ function speakPhraseFallback(phrase, rate = 0.92) {
 
 async function playPhrase(phrase, speed = "normal") {
   const playbackRate = speed === "slow" ? 0.82 : 1;
+  const audioConfig = state.lesson.audio || {};
+
+  if (audioConfig.mode === "elevenlabs-local") {
+    if (!state.audioStatus?.configured) {
+      renderAudioNote("Local ElevenLabs audio is not configured yet. Add your API key and voice ID in .env.local.");
+      return;
+    }
+
+    const endpoint = new URL(audioConfig.ttsEndpoint || "/api/elevenlabs/tts", window.location.origin);
+    endpoint.searchParams.set("lesson_id", state.lesson.id);
+    endpoint.searchParams.set("phrase_id", phrase.id);
+
+    try {
+      const response = await fetch(endpoint);
+      if (!response.ok) {
+        const errorText = await response.text();
+        renderAudioNote(`ElevenLabs generation failed for "${phrase.transliteration}". ${errorText.slice(0, 180)}`);
+        return;
+      }
+      const blob = await response.blob();
+      await playBlobAudio(blob, playbackRate);
+      renderAudioNote(`Generated local ElevenLabs audio for "${phrase.transliteration}".`);
+      return;
+    } catch (error) {
+      renderAudioNote(`Could not reach the local ElevenLabs endpoint. Make sure serve.py is running. ${error.message}`);
+      return;
+    }
+  }
 
   if (phrase.audioSrc) {
     try {
@@ -467,7 +595,21 @@ async function init() {
 
   try {
     state.lesson = await loadLesson();
+    const audioConfig = state.lesson.audio || {};
+    if (audioConfig.statusEndpoint) {
+      try {
+        const response = await fetch(audioConfig.statusEndpoint);
+        if (response.ok) {
+          state.audioStatus = await response.json();
+        } else {
+          state.audioStatus = { configured: false, missing: ["serve.py endpoint unavailable"] };
+        }
+      } catch (error) {
+        state.audioStatus = { configured: false, missing: ["serve.py endpoint unreachable"] };
+      }
+    }
     initializeLessonState();
+    renderLessonTabs();
     renderLessonChrome();
     renderStatus();
     renderAudioNote();

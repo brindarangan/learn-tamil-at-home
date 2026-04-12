@@ -1,16 +1,16 @@
 # Learn Tamil at Home
 
-A website-ready spoken Tamil prototype for English-dominant learners who do not read Tamil script, now including an open-licensed OpenSLR audio experiment on localhost.
+A website-ready spoken Tamil prototype for English-dominant learners who do not read Tamil script, with a local ElevenLabs audio path for the main lesson and an OpenSLR experiment kept alongside it.
 
 ## What is in this prototype
 
-- one Chennai-style home-conversation lesson
+- one Chennai-style home-conversation lesson wired for local ElevenLabs audio
 - one OpenSLR native-audio experiment lesson
 - transliteration-first phrase cards
 - optional Tamil script toggle for builder review
 - mini dialogue choices and recall practice
 - lesson content moved into JSON files under `data/lessons/`
-- hosted-audio hooks that expect MP3 files in `audio/lesson-01/`
+- a local ElevenLabs proxy server in `serve.py`
 - extracted OpenSLR WAV clips in `audio/openslr65/`
 - static hosting config for Netlify, Vercel, and GitHub Pages
 
@@ -19,16 +19,16 @@ A website-ready spoken Tamil prototype for English-dominant learners who do not 
 From this folder:
 
 ```bash
-python3 -m http.server 8000
+python3 serve.py
 ```
 
-Then open the OpenSLR experiment:
+Then open the main ElevenLabs-backed lesson:
 
 `http://localhost:8000`
 
-Or open the original home-conversation lesson:
+Or open the OpenSLR experiment:
 
-`http://localhost:8000/?lesson=lesson-01`
+`http://localhost:8000/?lesson=lesson-openslr`
 
 ## Website hosting
 
@@ -40,19 +40,41 @@ This project is static, so you can host it on:
 
 No build step is required. The host just needs to serve the project root as static files.
 
+## Live hosting with ElevenLabs
+
+If you want the lesson audio to work for other people on a public URL, deploy the Python server instead of only hosting the static files.
+
+This repo is now set up for a single-service Render deploy:
+
+1. Push the repo to GitHub.
+2. Create a new Blueprint service on Render from this repo.
+3. Render will read `render.yaml`.
+4. Enter `ELEVENLABS_API_KEY` and `ELEVENLABS_VOICE_ID` when prompted.
+5. Deploy and share the resulting `onrender.com` URL.
+
+Important deployment notes:
+
+- The public app serves both the website and the `/api/elevenlabs/*` endpoints from `serve.py`.
+- Changing the teacher voice is usually just an env-var change: update `ELEVENLABS_VOICE_ID` in Render and redeploy.
+- Audio cache files are separated by voice ID, so a new voice generates a new cache tree automatically.
+- By default, generated audio is stored inside the service filesystem. If you want cache files to survive redeploys, set `AUDIO_CACHE_DIR` to a persistent mounted path on your host.
+
 ## Audio workflow
 
 This project now supports two audio paths:
 
-1. Your own hosted lesson audio in `audio/lesson-01/`.
+1. Local ElevenLabs generation for the main home lesson.
 2. OpenSLR WAV clips extracted into `audio/openslr65/` for testing authentic native audio.
 
-If you record your own clips:
+For ElevenLabs local generation:
 
-1. Record one MP3 per phrase.
-2. Put the files in `audio/lesson-01/`.
-3. Keep the filenames listed in `audio/lesson-01/README.md`.
-4. If you change filenames or move to a CDN, update `data/lessons/lesson-01.json`.
+1. Create `.env.local` in the project root.
+2. Add the variables listed in `.env.example`.
+3. Set `ELEVENLABS_API_KEY` and a conversational Tamil-friendly `ELEVENLABS_VOICE_ID`.
+4. Run `python3 serve.py`.
+5. Click a phrase in lesson 01 to generate and cache its MP3 locally.
+
+Generated audio is cached under `generated-audio/` and ignored by git.
 
 ## Content workflow
 

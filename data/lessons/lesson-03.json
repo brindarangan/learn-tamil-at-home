@@ -1,0 +1,222 @@
+{
+  "id": "lesson-03-verbs-structures",
+  "eyebrow": "Spoken Tamil Web MVP",
+  "heroTitle": "Build your own Tamil sentences with core verbs.",
+  "heroText": "This lesson shifts from memorizing phrases to using high-value spoken patterns. The goal is to help learners start making their own short Tamil sentences.",
+  "panelLabel": "This module teaches",
+  "panelList": [
+    "How to use a few core spoken verbs over and over",
+    "How to build short sentences with I, want, do, go, come, and understand",
+    "How to recognize sentence patterns instead of memorizing isolated lines"
+  ],
+  "lessonNumber": "Lesson 03",
+  "title": "Core verbs and sentence patterns",
+  "description": "This lesson introduces the verbs and structures that let a beginner build their own spoken Tamil. Instead of learning only fixed lines, the learner starts seeing patterns like 'I am going', 'I want', 'I don't understand', and 'I am coming'.",
+  "dialect": "Modern Chennai home Tamil",
+  "audio": {
+    "mode": "elevenlabs-local",
+    "ttsFallback": false,
+    "provider": "ElevenLabs local proxy",
+    "statusEndpoint": "/api/elevenlabs/status",
+    "ttsEndpoint": "/api/elevenlabs/tts",
+    "note": "This localhost lesson is wired for ElevenLabs-generated audio. Configure ELEVENLABS_API_KEY and ELEVENLABS_VOICE_ID in .env.local, then run serve.py."
+  },
+  "phrases": [
+    {
+      "id": "ippo-pannren",
+      "transliteration": "naan ippo pannren",
+      "script": "நான் இப்போ பண்றேன்",
+      "ttsText": "நான் இப்போ பண்றேன்",
+      "meaning": "I'm doing it now.",
+      "tone": "Casual",
+      "useCase": "A useful pattern for saying you are doing something right now.",
+      "note": "This teaches the beginner a very reusable present-action structure."
+    },
+    {
+      "id": "office-ku-poren",
+      "transliteration": "naan office ku poren",
+      "script": "நான் ஆபீஸ்க்கு போறேன்",
+      "ttsText": "நான் ஆபீஸ்க்கு போறேன்",
+      "meaning": "I'm going to the office.",
+      "tone": "Casual",
+      "useCase": "Use this to say where you are going.",
+      "note": "This helps the learner see how location plus `poren` works."
+    },
+    {
+      "id": "ippo-varen",
+      "transliteration": "naan ippo varen",
+      "script": "நான் இப்போ வரேன்",
+      "ttsText": "நான் இப்போ வரேன்",
+      "meaning": "I'm coming now.",
+      "tone": "Casual",
+      "useCase": "A very common home reply when someone calls you.",
+      "note": "This is one of the highest-value short response patterns in the app."
+    },
+    {
+      "id": "coffee-venum",
+      "transliteration": "enakku coffee venum",
+      "script": "எனக்கு காபி வேணும்",
+      "ttsText": "எனக்கு காபி வேணும்",
+      "meaning": "I want coffee.",
+      "tone": "Casual need/want statement",
+      "useCase": "A useful beginner pattern for saying what you want or need.",
+      "note": "`enakku ... venum` is one of the most useful sentence frames in spoken Tamil."
+    },
+    {
+      "id": "konjam-time-venum",
+      "transliteration": "enakku konjam time venum",
+      "script": "எனக்கு கொஞ்சம் டைம் வேணும்",
+      "ttsText": "எனக்கு கொஞ்சம் டைம் வேணும்",
+      "meaning": "I need a little time.",
+      "tone": "Casual, practical",
+      "useCase": "Useful when someone wants an answer or action immediately.",
+      "note": "This helps learners see how the same `venum` pattern works with many nouns."
+    },
+    {
+      "id": "theriyala",
+      "transliteration": "enakku theriyala",
+      "script": "எனக்கு தெரியல",
+      "ttsText": "எனக்கு தெரியல",
+      "meaning": "I don't know.",
+      "tone": "Neutral, honest",
+      "useCase": "A survival phrase and also an important sentence pattern.",
+      "note": "This is different from `puriyala`, which is more like 'I didn't understand.'"
+    },
+    {
+      "id": "puriyala",
+      "transliteration": "enakku puriyala",
+      "script": "எனக்கு புரியல",
+      "ttsText": "எனக்கு புரியல",
+      "meaning": "I don't understand.",
+      "tone": "Neutral, honest",
+      "useCase": "Use this when you heard the words but did not understand the meaning.",
+      "note": "This is a core learner phrase and a strong sentence-building pattern."
+    },
+    {
+      "id": "saapdren",
+      "transliteration": "naan ippo saapdren",
+      "script": "நான் இப்போ சாப்பிட்றேன்",
+      "ttsText": "நான் இப்போ சாப்பிட்றேன்",
+      "meaning": "I'm eating now.",
+      "tone": "Casual everyday Tamil",
+      "useCase": "Useful for learning how action verbs change in spoken Tamil.",
+      "note": "This helps learners hear a natural spoken form rather than a stiff textbook form."
+    },
+    {
+      "id": "busy-irukken",
+      "transliteration": "naan busy aa irukken",
+      "script": "நான் பிஸியா இருக்கேன்",
+      "ttsText": "நான் பிஸியா இருக்கேன்",
+      "meaning": "I'm busy.",
+      "tone": "Casual, modern spoken Tamil",
+      "useCase": "Use this when you want to say your current state without giving a long explanation.",
+      "note": "This gives the learner a very practical `irukken` structure."
+    },
+    {
+      "id": "ready-illa",
+      "transliteration": "naan ready illa",
+      "script": "நான் ரெடி இல்ல",
+      "ttsText": "நான் ரெடி இல்ல",
+      "meaning": "I'm not ready.",
+      "tone": "Casual, direct",
+      "useCase": "Useful for everyday home situations when someone is waiting on you.",
+      "note": "This is a nice bridge from fixed phrases into flexible self-statements."
+    },
+    {
+      "id": "help-pannren",
+      "transliteration": "naan help pannren",
+      "script": "நான் ஹெல்ப் பண்றேன்",
+      "ttsText": "நான் ஹெல்ப் பண்றேன்",
+      "meaning": "I'm helping.",
+      "tone": "Warm, casual",
+      "useCase": "Useful when someone asks what you are doing or you want to describe your action.",
+      "note": "This reinforces how `pannren` can attach to many action ideas in spoken Tamil."
+    },
+    {
+      "id": "seri-solren",
+      "transliteration": "seri, solren",
+      "script": "சரி, சொல்றேன்",
+      "ttsText": "சரி, சொல்றேன்",
+      "meaning": "Okay, I'll say/tell.",
+      "tone": "Casual, cooperative",
+      "useCase": "Use when someone asks you something and you are about to answer.",
+      "note": "A useful bridge phrase that helps the learner keep talking."
+    }
+  ],
+  "dialogues": [
+    {
+      "prompt": "You want to say you are doing something right now.",
+      "context": "Which line gives the clearest everyday present-action pattern?",
+      "correctIndex": 0,
+      "explanation": "This is the simplest reusable present-action pattern in the lesson.",
+      "answers": [
+        "naan ippo pannren",
+        "enakku theriyala",
+        "naan ready illa"
+      ]
+    },
+    {
+      "prompt": "Someone asks what you want.",
+      "context": "Which answer best shows the `venum` pattern?",
+      "correctIndex": 2,
+      "explanation": "This is the strongest example of the beginner-friendly `enakku ... venum` structure.",
+      "answers": [
+        "naan office ku poren",
+        "naan ippo varen",
+        "enakku coffee venum"
+      ]
+    },
+    {
+      "prompt": "You heard the Tamil words, but you still do not know what they mean.",
+      "context": "Which phrase fits best?",
+      "correctIndex": 1,
+      "explanation": "Use `puriyala` for not understanding meaning; `theriyala` is closer to not knowing.",
+      "answers": [
+        "enakku theriyala",
+        "enakku puriyala",
+        "naan busy aa irukken"
+      ]
+    },
+    {
+      "prompt": "A family member is waiting and you want to say you're coming now.",
+      "context": "Which answer sounds most natural?",
+      "correctIndex": 2,
+      "explanation": "This is one of the most common short-response patterns in spoken home Tamil.",
+      "answers": [
+        "naan help pannren",
+        "naan office ku poren",
+        "naan ippo varen"
+      ]
+    }
+  ],
+  "recalls": [
+    {
+      "prompt": "Say: 'I'm doing it now.'",
+      "transliteration": "naan ippo pannren",
+      "script": "நான் இப்போ பண்றேன்",
+      "note": "A core pattern for present action.",
+      "phraseId": "ippo-pannren"
+    },
+    {
+      "prompt": "Say: 'I want coffee.'",
+      "transliteration": "enakku coffee venum",
+      "script": "எனக்கு காபி வேணும்",
+      "note": "A high-value `venum` sentence frame.",
+      "phraseId": "coffee-venum"
+    },
+    {
+      "prompt": "Say: 'I don't know.'",
+      "transliteration": "enakku theriyala",
+      "script": "எனக்கு தெரியல",
+      "note": "Short, essential, and very reusable.",
+      "phraseId": "theriyala"
+    },
+    {
+      "prompt": "Say: 'I'm coming now.'",
+      "transliteration": "naan ippo varen",
+      "script": "நான் இப்போ வரேன்",
+      "note": "A very common family/home response.",
+      "phraseId": "ippo-varen"
+    }
+  ]
+}

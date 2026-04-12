@@ -276,6 +276,62 @@ button:disabled {
   margin-bottom: 22px;
 }
 
+.tabs-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: end;
+  margin-bottom: 22px;
+}
+
+.tabs-header p:last-child {
+  max-width: 48ch;
+  color: var(--ink-soft);
+}
+
+.lesson-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.lesson-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 220px;
+  padding: 16px 18px;
+  text-align: left;
+  border: 1px solid rgba(31, 42, 39, 0.12);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.56);
+  -webkit-appearance: none;
+  appearance: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+.lesson-tab.is-active {
+  border-color: rgba(31, 114, 100, 0.32);
+  background: linear-gradient(135deg, rgba(31, 114, 100, 0.12), rgba(224, 163, 58, 0.08));
+}
+
+.lesson-tab strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.lesson-tab span {
+  display: block;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+.lesson-tab:hover {
+  transform: translateY(-1px);
+}
+
 .section-header p:last-child {
   max-width: 48ch;
   color: var(--ink-soft);
@@ -492,7 +548,8 @@ body.show-script .builder-only {
     grid-template-columns: 1fr;
   }
 
-  .section-header {
+  .section-header,
+  .tabs-header {
     align-items: start;
     flex-direction: column;
   }

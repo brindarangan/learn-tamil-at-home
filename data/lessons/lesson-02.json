@@ -1,0 +1,222 @@
+{
+  "id": "lesson-02-family-questions",
+  "eyebrow": "Spoken Tamil Web MVP",
+  "heroTitle": "Understand the questions family asks all the time.",
+  "heroText": "This lesson helps English-dominant learners recognize common Tamil home questions and answer them with short, natural replies.",
+  "panelLabel": "This module teaches",
+  "panelList": [
+    "How to understand frequent family questions",
+    "How to answer briefly without translating word by word",
+    "How to sound natural in casual home conversations"
+  ],
+  "lessonNumber": "Lesson 02",
+  "title": "Common family questions and replies",
+  "description": "This lesson focuses on questions relatives and parents ask constantly: where you are going, where you were, when you will come back, and what you did today. The goal is not perfect grammar. The goal is being able to keep the conversation moving.",
+  "dialect": "Modern Chennai home Tamil",
+  "audio": {
+    "mode": "elevenlabs-local",
+    "ttsFallback": false,
+    "provider": "ElevenLabs local proxy",
+    "statusEndpoint": "/api/elevenlabs/status",
+    "ttsEndpoint": "/api/elevenlabs/tts",
+    "note": "This localhost lesson is wired for ElevenLabs-generated audio. Configure ELEVENLABS_API_KEY and ELEVENLABS_VOICE_ID in .env.local, then run serve.py."
+  },
+  "phrases": [
+    {
+      "id": "enga-pora",
+      "transliteration": "enga pora?",
+      "script": "எங்க போற?",
+      "ttsText": "எங்க போற?",
+      "meaning": "Where are you going?",
+      "tone": "Casual family question",
+      "useCase": "A very common question from parents or siblings when you are about to leave.",
+      "note": "Short, direct, and common in spoken Tamil at home."
+    },
+    {
+      "id": "friend-veetukku",
+      "transliteration": "friend veetukku poren",
+      "script": "ஃப்ரெண்ட் வீட்டுக்கு போறேன்",
+      "ttsText": "ப்ரெண்ட் வீட்டுக்கு போறேன்",
+      "meaning": "I'm going to a friend's house.",
+      "tone": "Casual reply",
+      "useCase": "An easy natural reply to say where you are headed.",
+      "note": "Code-mixing with words like 'friend' is common in many Chennai homes."
+    },
+    {
+      "id": "enga-irundha",
+      "transliteration": "enga irundha?",
+      "script": "எங்க இருந்த?",
+      "ttsText": "எங்க இருந்த?",
+      "meaning": "Where were you?",
+      "tone": "Casual family question",
+      "useCase": "A common question when you come back after being out.",
+      "note": "This is one of the most useful pattern-recognition questions for learners."
+    },
+    {
+      "id": "office-la",
+      "transliteration": "office la irundhen",
+      "script": "ஆபீஸ்ல இருந்தேன்",
+      "ttsText": "ஆபீஸ்ல இருந்தேன்",
+      "meaning": "I was at the office.",
+      "tone": "Casual reply",
+      "useCase": "A quick answer when someone asks where you were.",
+      "note": "You can swap 'office' for other locations once the pattern becomes familiar."
+    },
+    {
+      "id": "innikku-enna-pannina",
+      "transliteration": "innikku enna pannina?",
+      "script": "இன்னிக்கு என்ன பண்ணின?",
+      "ttsText": "இன்னிக்கு என்ன பண்ணின?",
+      "meaning": "What did you do today?",
+      "tone": "Warm family check-in",
+      "useCase": "A common end-of-day question from parents or relatives.",
+      "note": "Learners will hear this a lot in home conversations."
+    },
+    {
+      "id": "onnum-special-illa",
+      "transliteration": "onnum special illa",
+      "script": "ஒண்ணும் ஸ்பெஷல் இல்ல",
+      "ttsText": "ஒண்ணும் ஸ்பெஷல் இல்ல",
+      "meaning": "Nothing special.",
+      "tone": "Casual short reply",
+      "useCase": "A very common short answer when you do not want to explain much.",
+      "note": "This is high-frequency and makes learners sound immediately more natural."
+    },
+    {
+      "id": "eppo-varuva",
+      "transliteration": "eppo varuva?",
+      "script": "எப்போ வருவ?",
+      "ttsText": "எப்போ வருவ?",
+      "meaning": "When will you come back?",
+      "tone": "Common family logistics question",
+      "useCase": "Used when someone wants to know when you will return home.",
+      "note": "Understanding time questions is especially useful for home conversations."
+    },
+    {
+      "id": "seekiram-varuven",
+      "transliteration": "seekiram varuven",
+      "script": "சீக்கிரம் வருவேன்",
+      "ttsText": "சீக்கிரம் வருவேன்",
+      "meaning": "I'll come back soon.",
+      "tone": "Reassuring reply",
+      "useCase": "A simple answer when you do not want to give an exact time.",
+      "note": "This is a very practical reply for beginners."
+    },
+    {
+      "id": "late-aagum",
+      "transliteration": "konjam late aagum",
+      "script": "கொஞ்சம் லேட் ஆகும்",
+      "ttsText": "கொஞ்சம் லேட் ஆகும்",
+      "meaning": "I'll be a little late.",
+      "tone": "Casual modern spoken Tamil",
+      "useCase": "Useful when you want to manage expectations without a long explanation.",
+      "note": "This is a very realistic mixed-language phrase for urban Tamil speech."
+    },
+    {
+      "id": "busy-irukken",
+      "transliteration": "ippo busy aa irukken",
+      "script": "இப்போ பிஸியா இருக்கேன்",
+      "ttsText": "இப்போ பிஸியா இருக்கேன்",
+      "meaning": "I'm busy right now.",
+      "tone": "Casual",
+      "useCase": "Useful when someone is asking you to talk or do something immediately.",
+      "note": "This helps learners manage a conversation without sounding rude."
+    },
+    {
+      "id": "appram-pesalaam",
+      "transliteration": "appram pesalaam",
+      "script": "அப்பறம் பேசலாம்",
+      "ttsText": "அப்பறம் பேசலாம்",
+      "meaning": "We can talk later.",
+      "tone": "Soft, natural",
+      "useCase": "A polite follow-up when you are busy or want to postpone a conversation.",
+      "note": "This is better than a blunt no, and very useful in real family interactions."
+    },
+    {
+      "id": "seri-solren",
+      "transliteration": "seri, solren",
+      "script": "சரி, சொல்றேன்",
+      "ttsText": "சரி, சொல்றேன்",
+      "meaning": "Okay, I'll tell you.",
+      "tone": "Casual, cooperative",
+      "useCase": "Use when someone asks you what happened or what you are planning.",
+      "note": "A strong bridge phrase that keeps the conversation going."
+    }
+  ],
+  "dialogues": [
+    {
+      "prompt": "Your mom asks, 'enga pora?'",
+      "context": "You are heading out and want to answer simply and naturally.",
+      "correctIndex": 1,
+      "explanation": "This directly answers the question and sounds like a normal casual home reply.",
+      "answers": [
+        "onnum special illa",
+        "friend veetukku poren",
+        "seekiram varuven"
+      ]
+    },
+    {
+      "prompt": "Someone at home asks, 'eppo varuva?'",
+      "context": "You don't know the exact time, but you want to reassure them.",
+      "correctIndex": 0,
+      "explanation": "This is a natural reassuring answer when you do not want to give a precise time.",
+      "answers": [
+        "seekiram varuven",
+        "office la irundhen",
+        "enga pora?"
+      ]
+    },
+    {
+      "prompt": "A parent asks, 'innikku enna pannina?'",
+      "context": "You do not want to explain much. What is the best short reply?",
+      "correctIndex": 2,
+      "explanation": "This is a very common short answer and works well in family conversations.",
+      "answers": [
+        "appram pesalaam",
+        "friend veetukku poren",
+        "onnum special illa"
+      ]
+    },
+    {
+      "prompt": "You are busy and someone wants to talk right now.",
+      "context": "Which answer sounds the softest and most natural?",
+      "correctIndex": 1,
+      "explanation": "This politely delays the conversation instead of sounding abrupt.",
+      "answers": [
+        "enga irundha?",
+        "appram pesalaam",
+        "seri, solren"
+      ]
+    }
+  ],
+  "recalls": [
+    {
+      "prompt": "Say: 'Where are you going?'",
+      "transliteration": "enga pora?",
+      "script": "எங்க போற?",
+      "note": "One of the most common family questions you will hear.",
+      "phraseId": "enga-pora"
+    },
+    {
+      "prompt": "Say: 'I'm going to a friend's house.'",
+      "transliteration": "friend veetukku poren",
+      "script": "ஃப்ரெண்ட் வீட்டுக்கு போறேன்",
+      "note": "A useful simple location reply for beginners.",
+      "phraseId": "friend-veetukku"
+    },
+    {
+      "prompt": "Say: 'What did you do today?'",
+      "transliteration": "innikku enna pannina?",
+      "script": "இன்னிக்கு என்ன பண்ணின?",
+      "note": "You will hear this often in home conversations.",
+      "phraseId": "innikku-enna-pannina"
+    },
+    {
+      "prompt": "Say: 'We can talk later.'",
+      "transliteration": "appram pesalaam",
+      "script": "அப்பறம் பேசலாம்",
+      "note": "A soft way to postpone a conversation.",
+      "phraseId": "appram-pesalaam"
+    }
+  ]
+}

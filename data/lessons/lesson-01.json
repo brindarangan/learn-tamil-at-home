@@ -15,9 +15,12 @@
   "description": "The lesson stays short on purpose. Listen, repeat, choose the best reply, then do a quick recall round. This version uses Chennai-leaning spoken Tamil that sounds natural in many urban home conversations.",
   "dialect": "Modern Chennai home Tamil",
   "audio": {
-    "mode": "hosted-files",
+    "mode": "elevenlabs-local",
     "ttsFallback": false,
-    "note": "This website is ready for hosted Chennai-style MP3s. Add your recordings to /audio/lesson-01/ to replace browser-generated playback."
+    "provider": "ElevenLabs local proxy",
+    "statusEndpoint": "/api/elevenlabs/status",
+    "ttsEndpoint": "/api/elevenlabs/tts",
+    "note": "This localhost lesson is wired for ElevenLabs-generated audio. Configure ELEVENLABS_API_KEY and ELEVENLABS_VOICE_ID in .env.local, then run serve.py."
   },
   "phrases": [
     {
@@ -27,8 +30,7 @@
       "meaning": "You're back? / You came home?",
       "tone": "Warm, casual",
       "useCase": "A common way a parent or sibling may check in when you arrive home.",
-      "note": "The literal translation sounds blunt in English, but in Tamil it often feels caring and normal.",
-      "audioSrc": "./audio/lesson-01/vandhutiya.mp3"
+      "note": "The literal translation sounds blunt in English, but in Tamil it often feels caring and normal."
     },
     {
       "id": "vandhen",
@@ -37,8 +39,7 @@
       "meaning": "Yeah, I just got home.",
       "tone": "Casual family reply",
       "useCase": "Use this to answer someone asking if you just came in.",
-      "note": "The phrasing here is meant to feel like urban home Tamil from Chennai rather than formal textbook Tamil.",
-      "audioSrc": "./audio/lesson-01/vandhen.mp3"
+      "note": "The phrasing here is meant to feel like urban home Tamil from Chennai rather than formal textbook Tamil."
     },
     {
       "id": "saptiya",
@@ -47,8 +48,7 @@
       "meaning": "Did you eat?",
       "tone": "Caring family check-in",
       "useCase": "A very common home question that often signals care, not just literal curiosity.",
-      "note": "Learners should recognize that this can function almost like a warm greeting at home.",
-      "audioSrc": "./audio/lesson-01/saptiya.mp3"
+      "note": "Learners should recognize that this can function almost like a warm greeting at home."
     },
     {
       "id": "saapdala",
@@ -57,8 +57,7 @@
       "meaning": "No, I haven't eaten yet.",
       "tone": "Casual",
       "useCase": "A natural answer when someone asks if you already ate.",
-      "note": "The casual ending here is common in speech.",
-      "audioSrc": "./audio/lesson-01/saapdala.mp3"
+      "note": "The casual ending here is common in speech."
     },
     {
       "id": "sapadu",
@@ -67,8 +66,7 @@
       "meaning": "Is there food?",
       "tone": "Home, casual",
       "useCase": "Use at home when asking whether food is available.",
-      "note": "This works best in close family settings, not formal situations.",
-      "audioSrc": "./audio/lesson-01/saapadu-irukka.mp3"
+      "note": "This works best in close family settings, not formal situations."
     },
     {
       "id": "tanni",
@@ -77,8 +75,7 @@
       "meaning": "Please give me some water.",
       "tone": "Respectful",
       "useCase": "A polite request to a parent, elder, or host at home.",
-      "note": "The respectful ending matters here; it keeps the tone soft and appropriate.",
-      "audioSrc": "./audio/lesson-01/thanni-kudunga.mp3"
+      "note": "The respectful ending matters here; it keeps the tone soft and appropriate."
     },
     {
       "id": "medhuva",
@@ -87,8 +84,7 @@
       "meaning": "Please say it a little more slowly.",
       "tone": "Respectful",
       "useCase": "Use when someone speaks too fast and you need help.",
-      "note": "This is especially useful for heritage learners who understand some Tamil but miss fast speech.",
-      "audioSrc": "./audio/lesson-01/medhuva-sollunga.mp3"
+      "note": "This is especially useful for heritage learners who understand some Tamil but miss fast speech."
     },
     {
       "id": "puriyala",
@@ -97,8 +93,7 @@
       "meaning": "I didn't understand.",
       "tone": "Neutral, honest",
       "useCase": "A quick way to say you missed what someone said.",
-      "note": "This is one of the highest-value survival phrases in the entire app.",
-      "audioSrc": "./audio/lesson-01/puriyala.mp3"
+      "note": "This is one of the highest-value survival phrases in the entire app."
     },
     {
       "id": "help",
@@ -107,8 +102,7 @@
       "meaning": "Should I help?",
       "tone": "Warm, casual",
       "useCase": "Use when someone is cooking, cleaning, or getting something ready.",
-      "note": "Code-mixing with English words like 'help' is especially common in Chennai and other urban bilingual homes.",
-      "audioSrc": "./audio/lesson-01/help-pannava.mp3"
+      "note": "Code-mixing with English words like 'help' is especially common in Chennai and other urban bilingual homes."
     },
     {
       "id": "seri",
@@ -117,8 +111,7 @@
       "meaning": "Okay, I'm coming.",
       "tone": "Casual",
       "useCase": "A natural response when someone calls you from another room.",
-      "note": "Short, everyday replies like this make learners sound more natural very quickly.",
-      "audioSrc": "./audio/lesson-01/seri-varen.mp3"
+      "note": "Short, everyday replies like this make learners sound more natural very quickly."
     },
     {
       "id": "nalla",
@@ -127,18 +120,17 @@
       "meaning": "It's really good.",
       "tone": "Warm, appreciative",
       "useCase": "Use this to compliment food, tea, or something prepared at home.",
-      "note": "This is useful because appreciation language matters in family settings.",
-      "audioSrc": "./audio/lesson-01/romba-nalla-irukku.mp3"
+      "note": "This is useful because appreciation language matters in family settings."
     },
     {
       "id": "later",
-      "transliteration": "naan later pannren",
-      "script": "நான் லேட்டர் பண்றேன்",
+      "transliteration": "naa apparam pannren",
+      "script": "நா அப்பறம் பண்றேன்",
+      "ttsText": "நா அப்பறம் பண்றேன்",
       "meaning": "I'll do it later.",
-      "tone": "Casual, modern spoken Tamil",
-      "useCase": "A common modern mixed-language home reply.",
-      "note": "Many Chennai households naturally mix English into spoken Tamil, so this sounds familiar and current.",
-      "audioSrc": "./audio/lesson-01/later-pannren.mp3"
+      "tone": "Casual, everyday spoken Tamil",
+      "useCase": "Use this when someone asks you to do something and you want to say you'll do it a bit later.",
+      "note": "This feels more natural and broadly usable for learners than the English-mixed version."
     }
   ],
   "dialogues": [
@@ -159,7 +151,7 @@
       "correctIndex": 2,
       "explanation": "This is respectful and practical. It asks them to slow down without sounding abrupt.",
       "answers": [
-        "naan later pannren",
+        "naa apparam pannren",
         "romba nalla irukku",
         "konjam medhuva sollunga"
       ]
