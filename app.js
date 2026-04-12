@@ -275,7 +275,7 @@ function renderAudioNote(customMessage) {
       return;
     }
 
-    audioNote.textContent = `Local ElevenLabs is ready. Model: ${state.audioStatus.model_id}.`;
+    audioNote.textContent = "Local ElevenLabs audio is ready.";
     return;
   }
 
