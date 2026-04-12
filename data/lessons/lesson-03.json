@@ -27,6 +27,11 @@
       "transliteration": "naan ippo pannren",
       "script": "நான் இப்போ பண்றேன்",
       "ttsText": "நான் இப்போ பண்றேன்",
+      "wordBreakdown": [
+        { "word": "naan", "meaning": "I" },
+        { "word": "ippo", "meaning": "now" },
+        { "word": "pannren", "meaning": "am doing" }
+      ],
       "meaning": "I'm doing it now.",
       "tone": "Casual",
       "useCase": "A useful pattern for saying you are doing something right now.",
@@ -37,6 +42,11 @@
       "transliteration": "naan office ku poren",
       "script": "நான் ஆபீஸ்க்கு போறேன்",
       "ttsText": "நான் ஆபீஸ்க்கு போறேன்",
+      "wordBreakdown": [
+        { "word": "naan", "meaning": "I" },
+        { "word": "office ku", "meaning": "to the office" },
+        { "word": "poren", "meaning": "am going" }
+      ],
       "meaning": "I'm going to the office.",
       "tone": "Casual",
       "useCase": "Use this to say where you are going.",
@@ -47,6 +57,11 @@
       "transliteration": "naan ippo varen",
       "script": "நான் இப்போ வரேன்",
       "ttsText": "நான் இப்போ வரேன்",
+      "wordBreakdown": [
+        { "word": "naan", "meaning": "I" },
+        { "word": "ippo", "meaning": "now" },
+        { "word": "varen", "meaning": "am coming" }
+      ],
       "meaning": "I'm coming now.",
       "tone": "Casual",
       "useCase": "A very common home reply when someone calls you.",
@@ -57,6 +72,11 @@
       "transliteration": "enakku coffee venum",
       "script": "எனக்கு காபி வேணும்",
       "ttsText": "எனக்கு காபி வேணும்",
+      "wordBreakdown": [
+        { "word": "enakku", "meaning": "for me / to me" },
+        { "word": "coffee", "meaning": "coffee" },
+        { "word": "venum", "meaning": "want / need" }
+      ],
       "meaning": "I want coffee.",
       "tone": "Casual need/want statement",
       "useCase": "A useful beginner pattern for saying what you want or need.",
@@ -67,6 +87,12 @@
       "transliteration": "enakku konjam time venum",
       "script": "எனக்கு கொஞ்சம் டைம் வேணும்",
       "ttsText": "எனக்கு கொஞ்சம் டைம் வேணும்",
+      "wordBreakdown": [
+        { "word": "enakku", "meaning": "for me / to me" },
+        { "word": "konjam", "meaning": "a little" },
+        { "word": "time", "meaning": "time" },
+        { "word": "venum", "meaning": "need / want" }
+      ],
       "meaning": "I need a little time.",
       "tone": "Casual, practical",
       "useCase": "Useful when someone wants an answer or action immediately.",
@@ -77,6 +103,10 @@
       "transliteration": "enakku theriyala",
       "script": "எனக்கு தெரியல",
       "ttsText": "எனக்கு தெரியல",
+      "wordBreakdown": [
+        { "word": "enakku", "meaning": "for me / to me" },
+        { "word": "theriyala", "meaning": "don't know" }
+      ],
       "meaning": "I don't know.",
       "tone": "Neutral, honest",
       "useCase": "A survival phrase and also an important sentence pattern.",
@@ -87,6 +117,10 @@
       "transliteration": "enakku puriyala",
       "script": "எனக்கு புரியல",
       "ttsText": "எனக்கு புரியல",
+      "wordBreakdown": [
+        { "word": "enakku", "meaning": "for me / to me" },
+        { "word": "puriyala", "meaning": "don't understand" }
+      ],
       "meaning": "I don't understand.",
       "tone": "Neutral, honest",
       "useCase": "Use this when you heard the words but did not understand the meaning.",
@@ -97,6 +131,11 @@
       "transliteration": "naan ippo saapdren",
       "script": "நான் இப்போ சாப்பிட்றேன்",
       "ttsText": "நான் இப்போ சாப்பிட்றேன்",
+      "wordBreakdown": [
+        { "word": "naan", "meaning": "I" },
+        { "word": "ippo", "meaning": "now" },
+        { "word": "saapdren", "meaning": "am eating" }
+      ],
       "meaning": "I'm eating now.",
       "tone": "Casual everyday Tamil",
       "useCase": "Useful for learning how action verbs change in spoken Tamil.",
@@ -107,6 +146,11 @@
       "transliteration": "naan busy aa irukken",
       "script": "நான் பிஸியா இருக்கேன்",
       "ttsText": "நான் பிஸியா இருக்கேன்",
+      "wordBreakdown": [
+        { "word": "naan", "meaning": "I" },
+        { "word": "busy aa", "meaning": "busy" },
+        { "word": "irukken", "meaning": "am" }
+      ],
       "meaning": "I'm busy.",
       "tone": "Casual, modern spoken Tamil",
       "useCase": "Use this when you want to say your current state without giving a long explanation.",
@@ -117,6 +161,11 @@
       "transliteration": "naan ready illa",
       "script": "நான் ரெடி இல்ல",
       "ttsText": "நான் ரெடி இல்ல",
+      "wordBreakdown": [
+        { "word": "naan", "meaning": "I" },
+        { "word": "ready", "meaning": "ready" },
+        { "word": "illa", "meaning": "am not / not" }
+      ],
       "meaning": "I'm not ready.",
       "tone": "Casual, direct",
       "useCase": "Useful for everyday home situations when someone is waiting on you.",
@@ -127,6 +176,11 @@
       "transliteration": "naan help pannren",
       "script": "நான் ஹெல்ப் பண்றேன்",
       "ttsText": "நான் ஹெல்ப் பண்றேன்",
+      "wordBreakdown": [
+        { "word": "naan", "meaning": "I" },
+        { "word": "help", "meaning": "help" },
+        { "word": "pannren", "meaning": "am doing" }
+      ],
       "meaning": "I'm helping.",
       "tone": "Warm, casual",
       "useCase": "Useful when someone asks what you are doing or you want to describe your action.",
@@ -137,6 +191,10 @@
       "transliteration": "seri, solren",
       "script": "சரி, சொல்றேன்",
       "ttsText": "சரி, சொல்றேன்",
+      "wordBreakdown": [
+        { "word": "seri", "meaning": "okay / alright" },
+        { "word": "solren", "meaning": "I'll say / tell" }
+      ],
       "meaning": "Okay, I'll say/tell.",
       "tone": "Casual, cooperative",
       "useCase": "Use when someone asks you something and you are about to answer.",

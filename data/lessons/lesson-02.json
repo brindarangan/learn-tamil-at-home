@@ -27,6 +27,10 @@
       "transliteration": "enga pora?",
       "script": "எங்க போற?",
       "ttsText": "எங்க போற?",
+      "wordBreakdown": [
+        { "word": "enga", "meaning": "where" },
+        { "word": "pora?", "meaning": "are going?" }
+      ],
       "meaning": "Where are you going?",
       "tone": "Casual family question",
       "useCase": "A very common question from parents or siblings when you are about to leave.",
@@ -37,6 +41,11 @@
       "transliteration": "friend veetukku poren",
       "script": "ஃப்ரெண்ட் வீட்டுக்கு போறேன்",
       "ttsText": "ப்ரெண்ட் வீட்டுக்கு போறேன்",
+      "wordBreakdown": [
+        { "word": "friend", "meaning": "friend" },
+        { "word": "veetukku", "meaning": "to the house / home" },
+        { "word": "poren", "meaning": "I am going" }
+      ],
       "meaning": "I'm going to a friend's house.",
       "tone": "Casual reply",
       "useCase": "An easy natural reply to say where you are headed.",
@@ -47,6 +56,10 @@
       "transliteration": "enga irundha?",
       "script": "எங்க இருந்த?",
       "ttsText": "எங்க இருந்த?",
+      "wordBreakdown": [
+        { "word": "enga", "meaning": "where" },
+        { "word": "irundha?", "meaning": "were you?" }
+      ],
       "meaning": "Where were you?",
       "tone": "Casual family question",
       "useCase": "A common question when you come back after being out.",
@@ -57,6 +70,10 @@
       "transliteration": "office la irundhen",
       "script": "ஆபீஸ்ல இருந்தேன்",
       "ttsText": "ஆபீஸ்ல இருந்தேன்",
+      "wordBreakdown": [
+        { "word": "office la", "meaning": "at the office" },
+        { "word": "irundhen", "meaning": "I was" }
+      ],
       "meaning": "I was at the office.",
       "tone": "Casual reply",
       "useCase": "A quick answer when someone asks where you were.",
@@ -67,6 +84,11 @@
       "transliteration": "innikku enna pannina?",
       "script": "இன்னிக்கு என்ன பண்ணின?",
       "ttsText": "இன்னிக்கு என்ன பண்ணின?",
+      "wordBreakdown": [
+        { "word": "innikku", "meaning": "today" },
+        { "word": "enna", "meaning": "what" },
+        { "word": "pannina?", "meaning": "did you do?" }
+      ],
       "meaning": "What did you do today?",
       "tone": "Warm family check-in",
       "useCase": "A common end-of-day question from parents or relatives.",
@@ -77,6 +99,11 @@
       "transliteration": "onnum special illa",
       "script": "ஒண்ணும் ஸ்பெஷல் இல்ல",
       "ttsText": "ஒண்ணும் ஸ்பெஷல் இல்ல",
+      "wordBreakdown": [
+        { "word": "onnum", "meaning": "nothing" },
+        { "word": "special", "meaning": "special" },
+        { "word": "illa", "meaning": "isn't / not" }
+      ],
       "meaning": "Nothing special.",
       "tone": "Casual short reply",
       "useCase": "A very common short answer when you do not want to explain much.",
@@ -87,6 +114,10 @@
       "transliteration": "eppo varuva?",
       "script": "எப்போ வருவ?",
       "ttsText": "எப்போ வருவ?",
+      "wordBreakdown": [
+        { "word": "eppo", "meaning": "when" },
+        { "word": "varuva?", "meaning": "will you come?" }
+      ],
       "meaning": "When will you come back?",
       "tone": "Common family logistics question",
       "useCase": "Used when someone wants to know when you will return home.",
@@ -97,6 +128,10 @@
       "transliteration": "seekiram varuven",
       "script": "சீக்கிரம் வருவேன்",
       "ttsText": "சீக்கிரம் வருவேன்",
+      "wordBreakdown": [
+        { "word": "seekiram", "meaning": "soon / quickly" },
+        { "word": "varuven", "meaning": "I will come" }
+      ],
       "meaning": "I'll come back soon.",
       "tone": "Reassuring reply",
       "useCase": "A simple answer when you do not want to give an exact time.",
@@ -107,6 +142,11 @@
       "transliteration": "konjam late aagum",
       "script": "கொஞ்சம் லேட் ஆகும்",
       "ttsText": "கொஞ்சம் லேட் ஆகும்",
+      "wordBreakdown": [
+        { "word": "konjam", "meaning": "a little" },
+        { "word": "late", "meaning": "late" },
+        { "word": "aagum", "meaning": "will become / will be" }
+      ],
       "meaning": "I'll be a little late.",
       "tone": "Casual modern spoken Tamil",
       "useCase": "Useful when you want to manage expectations without a long explanation.",
@@ -117,6 +157,11 @@
       "transliteration": "ippo busy aa irukken",
       "script": "இப்போ பிஸியா இருக்கேன்",
       "ttsText": "இப்போ பிஸியா இருக்கேன்",
+      "wordBreakdown": [
+        { "word": "ippo", "meaning": "now" },
+        { "word": "busy aa", "meaning": "busy" },
+        { "word": "irukken", "meaning": "I am" }
+      ],
       "meaning": "I'm busy right now.",
       "tone": "Casual",
       "useCase": "Useful when someone is asking you to talk or do something immediately.",
@@ -127,6 +172,10 @@
       "transliteration": "appram pesalaam",
       "script": "அப்பறம் பேசலாம்",
       "ttsText": "அப்பறம் பேசலாம்",
+      "wordBreakdown": [
+        { "word": "appram", "meaning": "later / afterwards" },
+        { "word": "pesalaam", "meaning": "we can talk" }
+      ],
       "meaning": "We can talk later.",
       "tone": "Soft, natural",
       "useCase": "A polite follow-up when you are busy or want to postpone a conversation.",
@@ -137,6 +186,10 @@
       "transliteration": "seri, solren",
       "script": "சரி, சொல்றேன்",
       "ttsText": "சரி, சொல்றேன்",
+      "wordBreakdown": [
+        { "word": "seri", "meaning": "okay / alright" },
+        { "word": "solren", "meaning": "I'll say / tell" }
+      ],
       "meaning": "Okay, I'll tell you.",
       "tone": "Casual, cooperative",
       "useCase": "Use when someone asks you what happened or what you are planning.",
