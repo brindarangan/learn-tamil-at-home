@@ -196,6 +196,12 @@ class AppHandler(SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(body)
 
+    def head_only_response(self, status, content_type, content_length=0):
+        self.send_response(status)
+        self.send_header("Content-Type", content_type)
+        self.send_header("Content-Length", str(content_length))
+        self.end_headers()
+
     def do_GET(self):
         parsed = urllib.parse.urlparse(self.path)
 
@@ -230,6 +236,14 @@ class AppHandler(SimpleHTTPRequestHandler):
             return self.send_binary(status, audio, "audio/mpeg")
 
         return super().do_GET()
+
+    def do_HEAD(self):
+        parsed = urllib.parse.urlparse(self.path)
+
+        if parsed.path == "/healthz":
+            return self.head_only_response(HTTPStatus.OK, "application/json; charset=utf-8")
+
+        return super().do_HEAD()
 
     def guess_type(self, path):
         if path.endswith(".json"):

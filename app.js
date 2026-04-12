@@ -1,9 +1,9 @@
 const DEFAULT_LESSON = "lesson-01";
 const LESSONS = {
-  "lesson-01": "./data/lessons/lesson-01.json",
-  "lesson-02": "./data/lessons/lesson-02.json",
-  "lesson-03": "./data/lessons/lesson-03.json",
-  "lesson-openslr": "./data/lessons/lesson-openslr.json",
+  "lesson-01": "/data/lessons/lesson-01.json",
+  "lesson-02": "/data/lessons/lesson-02.json",
+  "lesson-03": "/data/lessons/lesson-03.json",
+  "lesson-openslr": "/data/lessons/lesson-openslr.json",
 };
 const LESSON_TAB_ITEMS = [
   {
@@ -54,6 +54,17 @@ const playback = {
   audio: new Audio(),
   objectUrl: null,
 };
+
+let phraseDetailHighlightTimeout = null;
+let phraseLayoutResizeFrame = null;
+
+function resolveAppPath(path) {
+  if (!path) {
+    return path;
+  }
+
+  return new URL(path, window.location.origin).toString();
+}
 
 const heroEyebrow = document.getElementById("heroEyebrow");
 const heroTitle = document.getElementById("heroTitle");
@@ -120,7 +131,7 @@ async function loadLesson() {
   const lessonKey = new URLSearchParams(window.location.search).get("lesson") || DEFAULT_LESSON;
   state.lessonKey = lessonKey;
   const lessonPath = LESSONS[lessonKey] || LESSONS[DEFAULT_LESSON];
-  const response = await fetch(lessonPath);
+  const response = await fetch(resolveAppPath(lessonPath));
 
   if (!response.ok) {
     throw new Error(`Lesson request failed with ${response.status}`);
@@ -264,7 +275,7 @@ function renderAudioNote(customMessage) {
       return;
     }
 
-    audioNote.textContent = `Local ElevenLabs is ready. Voice ID: ${state.audioStatus.voice_id}. Model: ${state.audioStatus.model_id}.`;
+    audioNote.textContent = `Local ElevenLabs is ready. Model: ${state.audioStatus.model_id}.`;
     return;
   }
 
@@ -286,6 +297,8 @@ function renderPhraseGrid() {
     const button = document.createElement("button");
     button.type = "button";
     button.className = `phrase-card ${phrase.id === state.activePhraseId ? "is-active" : ""}`;
+    button.setAttribute("aria-expanded", phrase.id === state.activePhraseId ? "true" : "false");
+    button.setAttribute("aria-controls", "phraseDetail");
     button.innerHTML = `
       <span class="phrase-index">Phrase ${String(index + 1).padStart(2, "0")}</span>
       <span class="phrase-transliteration">${phrase.transliteration}</span>
@@ -294,14 +307,76 @@ function renderPhraseGrid() {
     `;
 
     button.addEventListener("click", () => {
-      state.activePhraseId = phrase.id;
-      markStudied(phrase.id);
-      renderPhraseGrid();
-      renderPhraseDetail();
+      focusPhrase(phrase.id);
     });
 
     phraseGrid.appendChild(button);
   });
+}
+
+function getPhraseGridColumnCount() {
+  const template = window.getComputedStyle(phraseGrid).gridTemplateColumns;
+  if (!template || template === "none") {
+    return 1;
+  }
+
+  return template.split(" ").filter(Boolean).length || 1;
+}
+
+function placePhraseDetail() {
+  const activeIndex = state.lesson.phrases.findIndex((item) => item.id === state.activePhraseId);
+  if (activeIndex === -1) {
+    phraseGrid.appendChild(phraseDetail);
+    return;
+  }
+
+  const columnCount = getPhraseGridColumnCount();
+  const insertionIndex = Math.min(
+    phraseGrid.children.length,
+    Math.floor(activeIndex / columnCount) * columnCount + columnCount,
+  );
+  const nextSibling = phraseGrid.children[insertionIndex];
+
+  if (nextSibling) {
+    phraseGrid.insertBefore(phraseDetail, nextSibling);
+    return;
+  }
+
+  phraseGrid.appendChild(phraseDetail);
+}
+
+function syncPhraseDetailFeedback() {
+  phraseDetail.classList.remove("is-refreshing");
+  void phraseDetail.offsetWidth;
+  phraseDetail.classList.add("is-refreshing");
+
+  window.clearTimeout(phraseDetailHighlightTimeout);
+  phraseDetailHighlightTimeout = window.setTimeout(() => {
+    phraseDetail.classList.remove("is-refreshing");
+  }, 520);
+
+  window.requestAnimationFrame(() => {
+    const detailBounds = phraseDetail.getBoundingClientRect();
+    const detailFullyVisible = detailBounds.top >= 16 && detailBounds.bottom <= window.innerHeight - 16;
+    if (!detailFullyVisible) {
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      phraseDetail.scrollIntoView({
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+        block: "nearest",
+      });
+    }
+  });
+}
+
+function focusPhrase(phraseId, options = {}) {
+  state.activePhraseId = phraseId;
+  markStudied(phraseId);
+  renderPhraseGrid();
+  renderPhraseDetail();
+
+  if (!options.skipDetailFocus) {
+    syncPhraseDetailFeedback();
+  }
 }
 
 function renderPhraseDetail() {
@@ -365,6 +440,8 @@ function renderPhraseDetail() {
     </div>
     <p class="detail-note">${phrase.note}</p>
   `;
+
+  placePhraseDetail();
 
   phraseDetail.querySelectorAll("button").forEach((button) => {
     button.addEventListener("click", async () => {
@@ -497,7 +574,7 @@ function playMediaAudio(src, playbackRate = 1, options = {}) {
     if (!options.skipStopPlayback) {
       stopPlayback();
     }
-    playback.audio.src = src;
+    playback.audio.src = resolveAppPath(src);
     applyPlaybackRate(playback.audio, playbackRate);
 
     playback.audio.onloadedmetadata = () => {
@@ -586,7 +663,7 @@ async function playPhrase(phrase, speed = "normal") {
     } catch (error) {
       const allowTtsFallback = Boolean(state.lesson.audio?.ttsFallback);
       if (!allowTtsFallback) {
-        renderAudioNote(`Hosted audio is expected at ${phrase.audioSrc}, but the file is not there yet. Add that MP3 before publishing this lesson.`);
+        renderAudioNote(`Hosted audio is expected at ${resolveAppPath(phrase.audioSrc)}, but the file is not there yet. Add that MP3 before publishing this lesson.`);
         return;
       }
     }
@@ -609,6 +686,21 @@ scriptToggle.addEventListener("change", (event) => {
 
 startLessonButton.addEventListener("click", () => {
   document.getElementById("lessonAnchor").scrollIntoView({ behavior: "smooth" });
+});
+
+window.addEventListener("resize", () => {
+  if (!state.lesson || !phraseGrid.contains(phraseDetail)) {
+    return;
+  }
+
+  if (phraseLayoutResizeFrame) {
+    window.cancelAnimationFrame(phraseLayoutResizeFrame);
+  }
+
+  phraseLayoutResizeFrame = window.requestAnimationFrame(() => {
+    placePhraseDetail();
+    phraseLayoutResizeFrame = null;
+  });
 });
 
 nextDialogueButton.addEventListener("click", advanceDialogue);
@@ -644,7 +736,7 @@ async function init() {
     const audioConfig = state.lesson.audio || {};
     if (audioConfig.statusEndpoint) {
       try {
-        const response = await fetch(audioConfig.statusEndpoint);
+        const response = await fetch(resolveAppPath(audioConfig.statusEndpoint));
         if (response.ok) {
           state.audioStatus = await response.json();
         } else {
