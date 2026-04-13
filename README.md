@@ -1,15 +1,16 @@
 # Learn Tamil at Home
 
-A website-ready spoken Tamil prototype for English-dominant learners who do not read Tamil script, with a local ElevenLabs audio path for the main lesson and an OpenSLR experiment kept alongside it.
+A website-ready spoken Tamil prototype for English-dominant learners who do not read Tamil script, with three local ElevenLabs-backed practice lessons and one OpenSLR native-audio experiment kept alongside them.
 
 ## What is in this prototype
 
-- one Chennai-style home-conversation lesson wired for local ElevenLabs audio
+- three Chennai-leaning spoken Tamil lessons wired for local ElevenLabs audio
 - one OpenSLR native-audio experiment lesson
-- transliteration-first phrase cards
-- optional Tamil script toggle for builder review
-- mini dialogue choices and recall practice
-- lesson content moved into JSON files under `data/lessons/`
+- lesson tabs for moving across modules in the same app shell
+- transliteration-first phrase cards with optional Tamil script toggle for builder review
+- phrase detail panels with slow and normal playback plus word-by-word glosses
+- mini dialogue choices and recall practice with per-lesson browser-side progress
+- lesson content stored as JSON files under `data/lessons/`
 - a local ElevenLabs proxy server in `serve.py`
 - extracted OpenSLR WAV clips in `audio/openslr65/`
 - static hosting config for Netlify, Vercel, and GitHub Pages
@@ -22,17 +23,50 @@ From this folder:
 python3 serve.py
 ```
 
-Then open the main ElevenLabs-backed lesson:
+No third-party Python packages are required for the local server.
+
+Then open the main app:
 
 `http://localhost:8000`
 
-Or open the OpenSLR experiment:
+You can switch lessons from the in-app lesson tabs, or open them directly:
 
-`http://localhost:8000/?lesson=lesson-openslr`
+- `http://localhost:8000` for lesson 1
+- `http://localhost:8000/?lesson=lesson-02` for lesson 2
+- `http://localhost:8000/?lesson=lesson-03` for lesson 3
+- `http://localhost:8000/?lesson=lesson-openslr` for the OpenSLR experiment
+
+## Local audio setup
+
+For ElevenLabs-backed lessons:
+
+1. Copy `.env.example` to `.env.local` if you want a local-only config, or add the same variables to `.env`.
+2. Set `ELEVENLABS_API_KEY` and `ELEVENLABS_VOICE_ID`.
+3. Run `python3 serve.py`.
+4. Open lesson 1, 2, or 3 and click any phrase to generate and cache audio locally.
+
+The server reads `.env.local` first and then `.env`. Generated audio is cached under `generated-audio/` and ignored by git.
+
+For the OpenSLR experiment:
+
+- No ElevenLabs credentials are required.
+- The lesson uses hosted WAV files linked directly from `audio/openslr65/`.
+
+## Current lesson set
+
+- `lesson-01`: Coming home and talking to family
+- `lesson-02`: Common family questions and replies
+- `lesson-03`: Core verbs and sentence patterns
+- `lesson-openslr`: Open-license native clip test
 
 ## Website hosting
 
-This project is static, so you can host it on:
+This project can be hosted in two ways:
+
+1. Static hosting for the frontend files.
+2. Python server hosting when you want live ElevenLabs generation on a public URL.
+
+Static hosting works on:
 
 - Vercel
 - Netlify
@@ -40,11 +74,16 @@ This project is static, so you can host it on:
 
 No build step is required. The host just needs to serve the project root as static files.
 
+Important limitation:
+
+- Static hosting alone is enough for the OpenSLR lesson and general UI review.
+- The ElevenLabs-backed lessons need `serve.py` because the frontend calls `/api/elevenlabs/status` and `/api/elevenlabs/tts`.
+
 ## Live hosting with ElevenLabs
 
-If you want the lesson audio to work for other people on a public URL, deploy the Python server instead of only hosting the static files.
+If you want lessons 1 through 3 audio to work for other people on a public URL, deploy the Python server instead of only hosting the static files.
 
-This repo is now set up for a single-service Render deploy:
+This repo is set up for a single-service Render deploy:
 
 1. Push the repo to GitHub.
 2. Create a new Blueprint service on Render from this repo.
@@ -61,41 +100,38 @@ Important deployment notes:
 
 ## Audio workflow
 
-This project now supports two audio paths:
+This project currently supports two audio paths:
 
-1. Local ElevenLabs generation for the main home lesson.
-2. OpenSLR WAV clips extracted into `audio/openslr65/` for testing authentic native audio.
+1. Local ElevenLabs generation for lessons 1 through 3.
+2. OpenSLR WAV clips in `audio/openslr65/` for testing authentic native audio.
 
-For ElevenLabs local generation:
-
-1. Create `.env.local` in the project root.
-2. Add the variables listed in `.env.example`.
-3. Set `ELEVENLABS_API_KEY` and a conversational Tamil-friendly `ELEVENLABS_VOICE_ID`.
-4. Run `python3 serve.py`.
-5. Click a phrase in lesson 01 to generate and cache its MP3 locally.
-
-Generated audio is cached under `generated-audio/` and ignored by git.
+The frontend supports slow and normal playback for both modes.
 
 ## Content workflow
 
-The lessons now live in:
+The lessons currently live in:
 
 - `data/lessons/lesson-01.json`
+- `data/lessons/lesson-02.json`
+- `data/lessons/lesson-03.json`
 - `data/lessons/lesson-openslr.json`
 
 That makes it easier to:
 
 - add more lessons
 - swap in new audio URLs
+- keep copy and practice flow changes out of the core app shell
 - later connect a CMS or admin tool
 
 ## OpenSLR experiment notes
 
 - The OpenSLR lesson uses real open-licensed Tamil corpus WAV files.
-- The clips are more authentic than browser TTS, but they are not exact matches for the original family-home lesson.
+- The clips are more authentic than browser TTS, but they are not exact matches for the original family-home lesson flow.
+- The app exposes source, license, attribution, and notes for the dataset-backed lesson.
 - The source archive used locally is `dataset/openslr65/ta_in_female.zip`.
 
 ## Notes
 
 - Open the site through a server or real website URL, not by double-clicking `index.html`, because the app fetches JSON lesson data.
+- Progress is stored in `localStorage` per lesson on the current device and browser.
 - This app is intentionally dependency-free so it is easy to host and share.

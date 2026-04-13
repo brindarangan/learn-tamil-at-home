@@ -234,10 +234,27 @@ Culture note:
 - AI conversation partner
 - family mode by relationship (mom, dad, paati, thatha, cousin, in-laws)
 - dialect packs
-- script reveal toggle
 - builder dashboard for authoring Tamil content from script into learner-friendly output
 
-## 14. Builder advantage
+Note:
+
+- A builder-facing script reveal toggle already exists in the prototype. It should remain optional and off by default for learners.
+
+## 14. Current prototype snapshot
+
+The current web prototype already validates several core product assumptions:
+
+- audio-first phrase study with slow and normal playback
+- transliteration-first cards with optional Tamil script reveal
+- short scenario-based dialogue choices
+- lightweight recall practice with browser-side progress tracking
+- multiple lesson modules inside one app shell
+- a JSON-driven content pipeline for adding lessons without rewriting the UI
+- two audio paths: local ElevenLabs generation and an OpenSLR native-audio experiment
+
+The prototype is still a curriculum slice, not the full product. It proves the learning loop and content structure, but it does not yet cover the full 8 to 12 conversation clusters described above.
+
+## 15. Builder advantage
 
 Because you can read and write Tamil, your advantage is not just content creation. It is **translation of real Tamil into usable spoken learning experiences**.
 
@@ -253,15 +270,17 @@ That means your system can internally store:
 
 This gives you a strong content pipeline while keeping the learner experience script-free.
 
-## 15. A sharp product positioning statement
+## 16. A sharp product positioning statement
 
 `Learn the Tamil you can actually say at home. No script required.`
 
 Alternative:
 
+`Spoken Tamil for real family conversations, built for learners who think in English.`
+
 `A spoken Tamil app for English-dominant learners who want real family conversation.`
 
-## 16. Best first prototype
+## 17. Best first prototype
 
 If you want to validate the idea quickly, do not build a full course first.
 
