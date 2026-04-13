@@ -1,0 +1,490 @@
+{
+  "id": "lesson-00-quick-start-words",
+  "eyebrow": "Spoken Tamil Web MVP",
+  "heroTitle": "Start with the Tamil words you hear everywhere.",
+  "heroText": "This quick-start lesson focuses on common words, not full phrases, so learners can recognize the little building blocks that show up again and again in family conversation.",
+  "panelLabel": "This module teaches",
+  "panelList": [
+    "Question words, time words, and quick response words",
+    "Amount words like a little, more, very, and enough",
+    "Core home and family words you will hear constantly",
+    "Simple action roots that show up in many spoken patterns"
+  ],
+  "lessonNumber": "Lesson 00",
+  "title": "Quick-start Tamil words",
+  "description": "This lesson is a warm-up. Instead of asking learners to produce full sentences right away, it helps them get familiar with the small words that make home Tamil feel less overwhelming.",
+  "format": "word-cards",
+  "studySection": {
+    "kicker": "Word Cards",
+    "title": "Learn the words you keep hearing",
+    "description": "Tap a word card to hear it, see the meaning, and get comfortable with the question words, time words, family words, and action roots that glue conversations together."
+  },
+  "dialect": "Modern Chennai home Tamil",
+  "audio": {
+    "mode": "elevenlabs-local",
+    "ttsFallback": false,
+    "provider": "ElevenLabs local proxy",
+    "statusEndpoint": "/api/elevenlabs/status",
+    "ttsEndpoint": "/api/elevenlabs/tts",
+    "note": "This localhost lesson is wired for ElevenLabs-generated audio. Configure ELEVENLABS_API_KEY and ELEVENLABS_VOICE_ID in .env.local, then run serve.py."
+  },
+  "phrases": [
+    {
+      "id": "aama",
+      "transliteration": "aama",
+      "script": "ஆமா",
+      "ttsText": "ஆமா",
+      "wordBreakdown": [
+        { "word": "aama", "meaning": "yes / yeah" }
+      ],
+      "meaning": "yes / yeah",
+      "tone": "Casual, common",
+      "useCase": "A very common yes in home Tamil.",
+      "note": "This is the kind of everyday word learners will hear constantly."
+    },
+    {
+      "id": "illa",
+      "transliteration": "illa",
+      "script": "இல்ல",
+      "ttsText": "இல்ல",
+      "wordBreakdown": [
+        { "word": "illa", "meaning": "no / not / there isn't" }
+      ],
+      "meaning": "no / not",
+      "tone": "Common, flexible",
+      "useCase": "Used for no, not, or absence depending on context.",
+      "note": "This one word does a lot of work in spoken Tamil."
+    },
+    {
+      "id": "seri",
+      "transliteration": "seri",
+      "script": "சரி",
+      "ttsText": "சரி",
+      "wordBreakdown": [
+        { "word": "seri", "meaning": "okay / alright" }
+      ],
+      "meaning": "okay / alright",
+      "tone": "Neutral, useful",
+      "useCase": "A common response word in all kinds of home situations.",
+      "note": "Short reaction words like this help learners sound more natural quickly."
+    },
+    {
+      "id": "enna",
+      "transliteration": "enna",
+      "script": "என்ன",
+      "ttsText": "என்ன",
+      "wordBreakdown": [
+        { "word": "enna", "meaning": "what" }
+      ],
+      "meaning": "what",
+      "tone": "Core question word",
+      "useCase": "Appears in many common questions later in the course.",
+      "note": "Learners do not need a full sentence yet. Just recognizing this word is useful."
+    },
+    {
+      "id": "yaaru",
+      "transliteration": "yaaru",
+      "script": "யாரு",
+      "ttsText": "யாரு",
+      "wordBreakdown": [
+        { "word": "yaaru", "meaning": "who" }
+      ],
+      "meaning": "who",
+      "tone": "Core question word",
+      "useCase": "Shows up in questions about people, callers, and visitors.",
+      "note": "A very useful people-focused question word."
+    },
+    {
+      "id": "enga",
+      "transliteration": "enga",
+      "script": "எங்க",
+      "ttsText": "எங்க",
+      "wordBreakdown": [
+        { "word": "enga", "meaning": "where" }
+      ],
+      "meaning": "where",
+      "tone": "Core question word",
+      "useCase": "Shows up in questions like where you are going or where something is.",
+      "note": "This becomes much easier to notice once the learner has heard it on its own."
+    },
+    {
+      "id": "eppo",
+      "transliteration": "eppo",
+      "script": "எப்போ",
+      "ttsText": "எப்போ",
+      "wordBreakdown": [
+        { "word": "eppo", "meaning": "when" }
+      ],
+      "meaning": "when",
+      "tone": "Core question word",
+      "useCase": "A high-frequency timing word in family conversation.",
+      "note": "This word matters because so many home questions are really about time."
+    },
+    {
+      "id": "innikku",
+      "transliteration": "innikku",
+      "script": "இன்னிக்கு",
+      "ttsText": "இன்னிக்கு",
+      "wordBreakdown": [
+        { "word": "innikku", "meaning": "today" }
+      ],
+      "meaning": "today",
+      "tone": "Time word",
+      "useCase": "Useful in day-to-day check-ins about what happened today.",
+      "note": "This will come back strongly in the lesson about talking about your day."
+    },
+    {
+      "id": "naalaikku",
+      "transliteration": "naalaikku",
+      "script": "நாளைக்கு",
+      "ttsText": "நாளைக்கு",
+      "wordBreakdown": [
+        { "word": "naalaikku", "meaning": "tomorrow" }
+      ],
+      "meaning": "tomorrow",
+      "tone": "Time word",
+      "useCase": "A common planning word for family logistics and future plans.",
+      "note": "Useful early because families often ask about tomorrow and later."
+    },
+    {
+      "id": "ippo",
+      "transliteration": "ippo",
+      "script": "இப்போ",
+      "ttsText": "இப்போ",
+      "wordBreakdown": [
+        { "word": "ippo", "meaning": "now / right now" }
+      ],
+      "meaning": "now",
+      "tone": "High-frequency time word",
+      "useCase": "Useful in many replies and requests.",
+      "note": "A small but powerful word that appears everywhere in spoken Tamil."
+    },
+    {
+      "id": "apparam",
+      "transliteration": "apparam",
+      "script": "அப்பறம்",
+      "ttsText": "அப்பறம்",
+      "wordBreakdown": [
+        { "word": "apparam", "meaning": "later / afterwards" }
+      ],
+      "meaning": "later",
+      "tone": "Common time word",
+      "useCase": "Useful when delaying something or talking about what comes next.",
+      "note": "This helps learners catch the general idea even when they miss the rest of a sentence."
+    },
+    {
+      "id": "innum",
+      "transliteration": "innum",
+      "script": "இன்னும்",
+      "ttsText": "இன்னும்",
+      "wordBreakdown": [
+        { "word": "innum", "meaning": "still / more / yet" }
+      ],
+      "meaning": "still / more / yet",
+      "tone": "Time and amount word",
+      "useCase": "Shows up when talking about more food, more time, or something not finished yet.",
+      "note": "This one is especially useful because it can signal either time or quantity."
+    },
+    {
+      "id": "konjam",
+      "transliteration": "konjam",
+      "script": "கொஞ்சம்",
+      "ttsText": "கொஞ்சம்",
+      "wordBreakdown": [
+        { "word": "konjam", "meaning": "a little / some" }
+      ],
+      "meaning": "a little / some",
+      "tone": "Very common softener",
+      "useCase": "Used in requests, amounts, and softening speech.",
+      "note": "This is one of the most useful single words in the whole app."
+    },
+    {
+      "id": "romba",
+      "transliteration": "romba",
+      "script": "ரொம்ப",
+      "ttsText": "ரொம்ப",
+      "wordBreakdown": [
+        { "word": "romba", "meaning": "very / a lot" }
+      ],
+      "meaning": "very / a lot",
+      "tone": "Common intensifier",
+      "useCase": "Shows up in compliments, complaints, and explanations.",
+      "note": "Great for catching emotional intensity in a sentence."
+    },
+    {
+      "id": "ellam",
+      "transliteration": "ellam",
+      "script": "எல்லாம்",
+      "ttsText": "எல்லாம்",
+      "wordBreakdown": [
+        { "word": "ellam", "meaning": "all / everything" }
+      ],
+      "meaning": "all / everything",
+      "tone": "Common everyday word",
+      "useCase": "Useful in broad statements about food, things, or people.",
+      "note": "Learners will hear this in many family-style summaries."
+    },
+    {
+      "id": "podhum",
+      "transliteration": "podhum",
+      "script": "போதும்",
+      "ttsText": "போதும்",
+      "wordBreakdown": [
+        { "word": "podhum", "meaning": "enough / that's enough" }
+      ],
+      "meaning": "enough",
+      "tone": "Short, practical",
+      "useCase": "Useful with food, serving, and many everyday home situations.",
+      "note": "This is a tiny word with a very big payoff."
+    },
+    {
+      "id": "venum",
+      "transliteration": "venum",
+      "script": "வேணும்",
+      "ttsText": "வேணும்",
+      "wordBreakdown": [
+        { "word": "venum", "meaning": "want / need" }
+      ],
+      "meaning": "want / need",
+      "tone": "Core functional word",
+      "useCase": "A key word for saying what you want later in the course.",
+      "note": "This shows up in many useful beginner patterns."
+    },
+    {
+      "id": "theriyala",
+      "transliteration": "theriyala",
+      "script": "தெரியல",
+      "ttsText": "தெரியல",
+      "wordBreakdown": [
+        { "word": "theriyala", "meaning": "don't know" }
+      ],
+      "meaning": "don't know",
+      "tone": "Useful response word",
+      "useCase": "A common response when you do not know an answer.",
+      "note": "This is technically more than a root, but it is heard as one very common spoken unit."
+    },
+    {
+      "id": "puriyala",
+      "transliteration": "puriyala",
+      "script": "புரியல",
+      "ttsText": "புரியல",
+      "wordBreakdown": [
+        { "word": "puriyala", "meaning": "don't understand" }
+      ],
+      "meaning": "don't understand",
+      "tone": "Useful response word",
+      "useCase": "Useful when you heard Tamil but did not understand the meaning.",
+      "note": "A high-value survival word for heritage learners."
+    },
+    {
+      "id": "thanni",
+      "transliteration": "thanni",
+      "script": "தண்ணி",
+      "ttsText": "தண்ணி",
+      "wordBreakdown": [
+        { "word": "thanni", "meaning": "water" }
+      ],
+      "meaning": "water",
+      "tone": "Common home word",
+      "useCase": "A very high-frequency everyday noun.",
+      "note": "This is one of the easiest practical words to recognize early."
+    },
+    {
+      "id": "saapadu",
+      "transliteration": "saapadu",
+      "script": "சாப்பாடு",
+      "ttsText": "சாப்பாடு",
+      "wordBreakdown": [
+        { "word": "saapadu", "meaning": "food / meal" }
+      ],
+      "meaning": "food / meal",
+      "tone": "Common home word",
+      "useCase": "One of the most common home nouns in family Tamil.",
+      "note": "This helps later dinner-table lessons feel much more familiar."
+    },
+    {
+      "id": "veedu",
+      "transliteration": "veedu",
+      "script": "வீடு",
+      "ttsText": "வீடு",
+      "wordBreakdown": [
+        { "word": "veedu", "meaning": "house / home" }
+      ],
+      "meaning": "house / home",
+      "tone": "Common home word",
+      "useCase": "Shows up when talking about going home or someone else's house.",
+      "note": "This is a core family-conversation word."
+    },
+    {
+      "id": "saavi",
+      "transliteration": "saavi",
+      "script": "சாவி",
+      "ttsText": "சாவி",
+      "wordBreakdown": [
+        { "word": "saavi", "meaning": "key" }
+      ],
+      "meaning": "key",
+      "tone": "Common home word",
+      "useCase": "Very useful in everyday leaving-the-house situations.",
+      "note": "A small practical word with immediate payoff."
+    },
+    {
+      "id": "amma",
+      "transliteration": "amma",
+      "script": "அம்மா",
+      "ttsText": "அம்மா",
+      "wordBreakdown": [
+        { "word": "amma", "meaning": "mom / mother" }
+      ],
+      "meaning": "mom / mother",
+      "tone": "Family word",
+      "useCase": "One of the first family words many learners already half-recognize.",
+      "note": "Useful to anchor the lesson in family relationships."
+    },
+    {
+      "id": "appa",
+      "transliteration": "appa",
+      "script": "அப்பா",
+      "ttsText": "அப்பா",
+      "wordBreakdown": [
+        { "word": "appa", "meaning": "dad / father" }
+      ],
+      "meaning": "dad / father",
+      "tone": "Family word",
+      "useCase": "A very common family word that will fit many later scenes.",
+      "note": "Another good anchor word for heritage learners."
+    },
+    {
+      "id": "anna",
+      "transliteration": "anna",
+      "script": "அண்ணா",
+      "ttsText": "அண்ணா",
+      "wordBreakdown": [
+        { "word": "anna", "meaning": "older brother" }
+      ],
+      "meaning": "older brother",
+      "tone": "Family word",
+      "useCase": "Useful inside family context and also sometimes as a respectful address outside the family.",
+      "note": "This word carries both family and social usefulness."
+    },
+    {
+      "id": "akka",
+      "transliteration": "akka",
+      "script": "அக்கா",
+      "ttsText": "அக்கா",
+      "wordBreakdown": [
+        { "word": "akka", "meaning": "older sister" }
+      ],
+      "meaning": "older sister",
+      "tone": "Family word",
+      "useCase": "Useful for family situations and polite everyday address.",
+      "note": "This is another word learners may hear inside and outside the home."
+    },
+    {
+      "id": "paati",
+      "transliteration": "paati",
+      "script": "பாட்டி",
+      "ttsText": "பாட்டி",
+      "wordBreakdown": [
+        { "word": "paati", "meaning": "grandmother" }
+      ],
+      "meaning": "grandmother",
+      "tone": "Family word",
+      "useCase": "Useful for heritage learners who want to talk to older relatives.",
+      "note": "This helps the lesson feel more culturally grounded."
+    },
+    {
+      "id": "thatha",
+      "transliteration": "thatha",
+      "script": "தாத்தா",
+      "ttsText": "தாத்தா",
+      "wordBreakdown": [
+        { "word": "thatha", "meaning": "grandfather" }
+      ],
+      "meaning": "grandfather",
+      "tone": "Family word",
+      "useCase": "Useful for family-focused learners talking to older relatives.",
+      "note": "This fits the same family-relationship set as paati."
+    },
+    {
+      "id": "vaa",
+      "transliteration": "vaa",
+      "script": "வா",
+      "ttsText": "வா",
+      "wordBreakdown": [
+        { "word": "vaa", "meaning": "come" }
+      ],
+      "meaning": "come",
+      "tone": "Action root / command",
+      "useCase": "Shows up in common home invitations and calls.",
+      "note": "A tiny action word that appears in many spoken patterns."
+    },
+    {
+      "id": "po",
+      "transliteration": "po",
+      "script": "போ",
+      "ttsText": "போ",
+      "wordBreakdown": [
+        { "word": "po", "meaning": "go" }
+      ],
+      "meaning": "go",
+      "tone": "Action root / command",
+      "useCase": "Useful as a base action word and for recognizing other go-forms later.",
+      "note": "Even when learners do not produce it yet, hearing it early helps."
+    },
+    {
+      "id": "saapdu",
+      "transliteration": "saapdu",
+      "script": "சாப்பிடு",
+      "ttsText": "சாப்பிடு",
+      "wordBreakdown": [
+        { "word": "saapdu", "meaning": "eat" }
+      ],
+      "meaning": "eat",
+      "tone": "Action root",
+      "useCase": "A high-frequency root behind many food-related spoken forms.",
+      "note": "This is one of the most important action roots in the home context."
+    },
+    {
+      "id": "paaru",
+      "transliteration": "paaru",
+      "script": "பாரு",
+      "ttsText": "பாரு",
+      "wordBreakdown": [
+        { "word": "paaru", "meaning": "look / see" }
+      ],
+      "meaning": "look / see",
+      "tone": "Action root",
+      "useCase": "Useful in common spoken instructions and reactions.",
+      "note": "This helps learners get used to short action-root forms."
+    },
+    {
+      "id": "sollu",
+      "transliteration": "sollu",
+      "script": "சொல்லு",
+      "ttsText": "சொல்லு",
+      "wordBreakdown": [
+        { "word": "sollu", "meaning": "say / tell" }
+      ],
+      "meaning": "say / tell",
+      "tone": "Action root",
+      "useCase": "Appears in many useful spoken requests later in the app.",
+      "note": "A very important speech-related action root."
+    },
+    {
+      "id": "kudu",
+      "transliteration": "kudu",
+      "script": "கொடு",
+      "ttsText": "கொடு",
+      "wordBreakdown": [
+        { "word": "kudu", "meaning": "give" }
+      ],
+      "meaning": "give",
+      "tone": "Action root",
+      "useCase": "A core root behind many requests for food, water, or objects.",
+      "note": "This will make request forms easier to recognize later."
+    }
+  ],
+  "dialogues": [],
+  "recalls": []
+}

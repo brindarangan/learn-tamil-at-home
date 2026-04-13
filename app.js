@@ -1,11 +1,17 @@
-const DEFAULT_LESSON = "lesson-01";
+const DEFAULT_LESSON = "lesson-00";
 const LESSONS = {
+  "lesson-00": "/data/lessons/lesson-00.json",
   "lesson-01": "/data/lessons/lesson-01.json",
   "lesson-02": "/data/lessons/lesson-02.json",
   "lesson-03": "/data/lessons/lesson-03.json",
   "lesson-openslr": "/data/lessons/lesson-openslr.json",
 };
 const LESSON_TAB_ITEMS = [
+  {
+    key: "lesson-00",
+    label: "Lesson 0",
+    summary: "Quick-start Tamil words",
+  },
   {
     key: "lesson-01",
     label: "Lesson 1",
@@ -19,7 +25,7 @@ const LESSON_TAB_ITEMS = [
   {
     key: "lesson-03",
     label: "Lesson 3",
-    summary: "Core verbs and sentence patterns",
+    summary: "At the dinner table",
   },
 ];
 
@@ -80,8 +86,16 @@ const sourceSummary = document.getElementById("sourceSummary");
 const sourceLicense = document.getElementById("sourceLicense");
 const sourceAttribution = document.getElementById("sourceAttribution");
 const sourceNotes = document.getElementById("sourceNotes");
+const studySection = document.getElementById("studySection");
+const studyKicker = document.getElementById("studyKicker");
+const studyTitle = document.getElementById("studyTitle");
+const studyDescription = document.getElementById("studyDescription");
 const phraseGrid = document.getElementById("phraseGrid");
 const phraseDetail = document.getElementById("phraseDetail");
+const dialogueSection = document.getElementById("dialogueSection");
+const dialogueKicker = document.getElementById("dialogueKicker");
+const dialogueTitle = document.getElementById("dialogueTitle");
+const dialogueDescription = document.getElementById("dialogueDescription");
 const statusCard = document.getElementById("statusCard");
 const audioNote = document.getElementById("audioNote");
 const lessonTabs = document.getElementById("lessonTabs");
@@ -101,9 +115,33 @@ const recallAnswer = document.getElementById("recallAnswer");
 const recallTransliteration = document.getElementById("recallTransliteration");
 const recallScript = document.getElementById("recallScript");
 const recallNote = document.getElementById("recallNote");
+const recallSection = document.getElementById("recallSection");
+const recallKicker = document.getElementById("recallKicker");
+const recallTitle = document.getElementById("recallTitle");
+const recallDescription = document.getElementById("recallDescription");
 const revealRecallButton = document.getElementById("revealRecallButton");
 const playRecallButton = document.getElementById("playRecallButton");
 const ratingRow = document.getElementById("ratingRow");
+
+function isWordCardsLesson() {
+  return state.lesson?.format === "word-cards";
+}
+
+function lessonHasDialogues() {
+  return Array.isArray(state.lesson?.dialogues) && state.lesson.dialogues.length > 0;
+}
+
+function lessonHasRecalls() {
+  return Array.isArray(state.lesson?.recalls) && state.lesson.recalls.length > 0;
+}
+
+function studyItemLabel(count = 1) {
+  if (isWordCardsLesson()) {
+    return count === 1 ? "word" : "words";
+  }
+
+  return count === 1 ? "phrase" : "phrases";
+}
 
 function lessonStorageKey(name) {
   const lessonId = state.lesson ? state.lesson.id : "default";
@@ -182,6 +220,34 @@ function renderLessonChrome() {
   });
 
   renderSourceSection();
+  renderSectionChrome();
+}
+
+function renderSectionChrome() {
+  const studyCopy = state.lesson.studySection || {};
+  studyKicker.textContent = studyCopy.kicker || (isWordCardsLesson() ? "Word Cards" : "Phrase Studio");
+  studyTitle.textContent = studyCopy.title || (isWordCardsLesson() ? "Learn the words you keep hearing" : "Build your core phrases");
+  studyDescription.textContent =
+    studyCopy.description ||
+    (isWordCardsLesson()
+      ? "Tap a word card to hear it, see what it means, and get comfortable recognizing it before full conversations."
+      : "Tap a card to open its practice panel right in the flow. Use slow audio first, then normal speed.");
+
+  const dialogueCopy = state.lesson.dialogueSection || {};
+  dialogueKicker.textContent = dialogueCopy.kicker || "Use It";
+  dialogueTitle.textContent = dialogueCopy.title || "Choose the reply that fits the moment";
+  dialogueDescription.textContent =
+    dialogueCopy.description ||
+    "These mini-scenes focus on the kind of Tamil learners hear from family, not textbook conversations.";
+  dialogueSection.hidden = !lessonHasDialogues();
+
+  const recallCopy = state.lesson.recallSection || {};
+  recallKicker.textContent = recallCopy.kicker || "Recall";
+  recallTitle.textContent = recallCopy.title || "Can you say it without help?";
+  recallDescription.textContent =
+    recallCopy.description ||
+    "Read the English cue first. Say your answer out loud before you reveal the Tamil.";
+  recallSection.hidden = !lessonHasRecalls();
 }
 
 function urlForLesson(key) {
@@ -248,12 +314,20 @@ function markStudied(id) {
 function renderStatus() {
   const studiedCount = state.studied.length;
   const recallCount = state.recallRatings.length;
-  statusCard.innerHTML = `
-    <strong>${studiedCount}/${state.lesson.phrases.length}</strong>
-    <p>phrases explored</p>
-    <p>${state.dialogueScore}/${state.lesson.dialogues.length} dialogue choices correct this round</p>
-    <p>${recallCount} recall cards rated on this device</p>
-  `;
+  const lines = [
+    `<strong>${studiedCount}/${state.lesson.phrases.length}</strong>`,
+    `<p>${studyItemLabel(2)} explored</p>`,
+  ];
+
+  if (lessonHasDialogues()) {
+    lines.push(`<p>${state.dialogueScore}/${state.lesson.dialogues.length} dialogue choices correct this round</p>`);
+  }
+
+  if (lessonHasRecalls()) {
+    lines.push(`<p>${recallCount} recall cards rated on this device</p>`);
+  }
+
+  statusCard.innerHTML = lines.join("");
 }
 
 function renderAudioNote(customMessage) {
@@ -292,6 +366,7 @@ function phraseHasPlayableAudio(phrase) {
 
 function renderPhraseGrid() {
   phraseGrid.innerHTML = "";
+  const cardLabel = studyItemLabel(1);
 
   state.lesson.phrases.forEach((phrase, index) => {
     const button = document.createElement("button");
@@ -300,7 +375,7 @@ function renderPhraseGrid() {
     button.setAttribute("aria-expanded", phrase.id === state.activePhraseId ? "true" : "false");
     button.setAttribute("aria-controls", "phraseDetail");
     button.innerHTML = `
-      <span class="phrase-index">Phrase ${String(index + 1).padStart(2, "0")}</span>
+      <span class="phrase-index">${cardLabel.charAt(0).toUpperCase() + cardLabel.slice(1)} ${String(index + 1).padStart(2, "0")}</span>
       <span class="phrase-transliteration">${phrase.transliteration}</span>
       <span class="phrase-meaning">${phrase.meaning}</span>
       <span class="tag">${phrase.tone}</span>
@@ -383,6 +458,12 @@ function renderPhraseDetail() {
   const phrase = getActivePhrase();
   const hasAudio = phraseHasPlayableAudio(phrase);
   const wordBreakdown = Array.isArray(phrase.wordBreakdown) ? phrase.wordBreakdown : [];
+  const detailLabel = isWordCardsLesson() ? "Focus word" : "Focus phrase";
+  const breakdownTitle = isWordCardsLesson() ? "Word meaning" : "Word by word";
+  const breakdownSubtitle = isWordCardsLesson()
+    ? "Quick reference for what this word is doing"
+    : "Quick gloss for the phrase pieces";
+  const usageLabel = isWordCardsLesson() ? "Where you'll hear it" : "When to use it";
   const audioLabel = (state.lesson.audio || {}).mode === "elevenlabs-local"
     ? "Generated locally via ElevenLabs"
     : hasAudio
@@ -392,8 +473,8 @@ function renderPhraseDetail() {
     ? `
       <div class="word-breakdown">
         <div class="word-breakdown-header">
-          <strong>Word by word</strong>
-          <span>Quick gloss for the phrase pieces</span>
+          <strong>${breakdownTitle}</strong>
+          <span>${breakdownSubtitle}</span>
         </div>
         <div class="word-breakdown-grid">
           ${wordBreakdown
@@ -413,7 +494,7 @@ function renderPhraseDetail() {
 
   phraseDetail.innerHTML = `
     <div class="detail-header">
-      <p class="section-kicker">Focus phrase</p>
+      <p class="section-kicker">${detailLabel}</p>
       <h3>${phrase.transliteration}</h3>
       <p class="detail-script builder-only">${phrase.script}</p>
       <p>${phrase.meaning}</p>
@@ -430,7 +511,7 @@ function renderPhraseDetail() {
         <span>${phrase.tone}</span>
       </div>
       <div class="meta-chip">
-        <strong>When to use it</strong>
+        <strong>${usageLabel}</strong>
         <span>${phrase.useCase}</span>
       </div>
       <div class="meta-chip">
@@ -520,6 +601,10 @@ function renderDialogue() {
 }
 
 function advanceDialogue() {
+  if (!lessonHasDialogues()) {
+    return;
+  }
+
   if (state.dialogueIndex === state.lesson.dialogues.length - 1) {
     state.dialogueIndex = 0;
     state.dialogueScore = 0;
@@ -532,6 +617,10 @@ function advanceDialogue() {
 }
 
 function renderRecall() {
+  if (!lessonHasRecalls()) {
+    return;
+  }
+
   const item = state.lesson.recalls[state.recallIndex];
 
   recallPrompt.textContent = item.prompt;
@@ -544,6 +633,10 @@ function renderRecall() {
 }
 
 function advanceRecall(rating) {
+  if (!lessonHasRecalls()) {
+    return;
+  }
+
   const current = state.lesson.recalls[state.recallIndex];
   state.recallRatings.push({ id: current.phraseId, rating });
   saveState("recallRatings", state.recallRatings);
@@ -706,6 +799,10 @@ window.addEventListener("resize", () => {
 nextDialogueButton.addEventListener("click", advanceDialogue);
 
 revealRecallButton.addEventListener("click", async () => {
+  if (!lessonHasRecalls()) {
+    return;
+  }
+
   recallAnswer.hidden = false;
   ratingRow.hidden = false;
   revealRecallButton.textContent = "Answer shown";
@@ -717,6 +814,10 @@ revealRecallButton.addEventListener("click", async () => {
 });
 
 playRecallButton.addEventListener("click", async () => {
+  if (!lessonHasRecalls()) {
+    return;
+  }
+
   const current = state.lesson.recalls[state.recallIndex];
   const phrase = getPhraseById(current.phraseId);
   if (phrase) {
@@ -753,8 +854,12 @@ async function init() {
     renderAudioNote();
     renderPhraseGrid();
     renderPhraseDetail();
-    renderDialogue();
-    renderRecall();
+    if (lessonHasDialogues()) {
+      renderDialogue();
+    }
+    if (lessonHasRecalls()) {
+      renderRecall();
+    }
   } catch (error) {
     renderErrorState("The website could not load its lesson data. Serve it through a web host or local server so ./data/lessons/lesson-01.json can be fetched.");
   }
