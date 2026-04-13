@@ -1,17 +1,18 @@
 {
-  "id": "lesson-03-verbs-structures",
+  "id": "lesson-03-dinner-table",
   "eyebrow": "Spoken Tamil Web MVP",
-  "heroTitle": "Build your own Tamil sentences with core verbs.",
-  "heroText": "This lesson shifts from memorizing phrases to using high-value spoken patterns. The goal is to help learners start making their own short Tamil sentences.",
+  "heroTitle": "Handle dinner-table Tamil without freezing.",
+  "heroText": "This lesson teaches the short lines families use around serving food, calling people to eat, asking for more, and saying enough politely.",
   "panelLabel": "This module teaches",
   "panelList": [
-    "How to use a few core spoken verbs over and over",
-    "How to build short sentences with I, want, do, go, come, and understand",
-    "How to recognize sentence patterns instead of memorizing isolated lines"
+    "How to respond when someone calls you to eat",
+    "How to ask for more food or say enough naturally",
+    "How to make simple dinner-table requests",
+    "How to sound warm instead of stiff at home"
   ],
   "lessonNumber": "Lesson 03",
-  "title": "Core verbs and sentence patterns",
-  "description": "This lesson introduces the verbs and structures that let a beginner build their own spoken Tamil. Instead of learning only fixed lines, the learner starts seeing patterns like 'I am going', 'I want', 'I don't understand', and 'I am coming'.",
+  "title": "At the dinner table",
+  "description": "The goal here is not formal food vocabulary. The goal is being able to move through a real family meal in Tamil: come to the table, ask for a little more, say the food is good, and handle small back-and-forths naturally.",
   "dialect": "Modern Chennai home Tamil",
   "audio": {
     "mode": "elevenlabs-local",
@@ -23,258 +24,241 @@
   },
   "phrases": [
     {
-      "id": "ippo-pannren",
-      "transliteration": "naan ippo pannren",
-      "script": "நான் இப்போ பண்றேன்",
-      "ttsText": "நான் இப்போ பண்றேன்",
+      "id": "saapida-vaa",
+      "transliteration": "saapida vaa",
+      "script": "சாப்பிட வா",
+      "ttsText": "சாப்பிட வா",
       "wordBreakdown": [
-        { "word": "naan", "meaning": "I" },
-        { "word": "ippo", "meaning": "now" },
-        { "word": "pannren", "meaning": "am doing" }
+        { "word": "saapida", "meaning": "to eat" },
+        { "word": "vaa", "meaning": "come" }
       ],
-      "meaning": "I'm doing it now.",
-      "tone": "Casual",
-      "useCase": "A useful pattern for saying you are doing something right now.",
-      "note": "This teaches the beginner a very reusable present-action structure."
-    },
-    {
-      "id": "office-ku-poren",
-      "transliteration": "naan office ku poren",
-      "script": "நான் ஆபீஸ்க்கு போறேன்",
-      "ttsText": "நான் ஆபீஸ்க்கு போறேன்",
-      "wordBreakdown": [
-        { "word": "naan", "meaning": "I" },
-        { "word": "office ku", "meaning": "to the office" },
-        { "word": "poren", "meaning": "am going" }
-      ],
-      "meaning": "I'm going to the office.",
-      "tone": "Casual",
-      "useCase": "Use this to say where you are going.",
-      "note": "This helps the learner see how location plus `poren` works."
+      "meaning": "Come eat.",
+      "tone": "Warm, casual family call",
+      "useCase": "A parent, sibling, or close family member may say this when food is ready.",
+      "note": "Short invitations like this are everywhere in home Tamil. They sound normal, not abrupt."
     },
     {
       "id": "ippo-varen",
-      "transliteration": "naan ippo varen",
-      "script": "நான் இப்போ வரேன்",
-      "ttsText": "நான் இப்போ வரேன்",
+      "transliteration": "ippo varen",
+      "script": "இப்போ வரேன்",
+      "ttsText": "இப்போ வரேன்",
       "wordBreakdown": [
-        { "word": "naan", "meaning": "I" },
         { "word": "ippo", "meaning": "now" },
-        { "word": "varen", "meaning": "am coming" }
+        { "word": "varen", "meaning": "I'm coming" }
       ],
       "meaning": "I'm coming now.",
-      "tone": "Casual",
-      "useCase": "A very common home reply when someone calls you.",
-      "note": "This is one of the highest-value short response patterns in the app."
+      "tone": "Casual, immediate reply",
+      "useCase": "Use this when someone calls you to the table and you want to answer quickly.",
+      "note": "This is one of the highest-value short replies in home Tamil."
     },
     {
-      "id": "coffee-venum",
-      "transliteration": "enakku coffee venum",
-      "script": "எனக்கு காபி வேணும்",
-      "ttsText": "எனக்கு காபி வேணும்",
-      "wordBreakdown": [
-        { "word": "enakku", "meaning": "for me / to me" },
-        { "word": "coffee", "meaning": "coffee" },
-        { "word": "venum", "meaning": "want / need" }
-      ],
-      "meaning": "I want coffee.",
-      "tone": "Casual need/want statement",
-      "useCase": "A useful beginner pattern for saying what you want or need.",
-      "note": "`enakku ... venum` is one of the most useful sentence frames in spoken Tamil."
-    },
-    {
-      "id": "konjam-time-venum",
-      "transliteration": "enakku konjam time venum",
-      "script": "எனக்கு கொஞ்சம் டைம் வேணும்",
-      "ttsText": "எனக்கு கொஞ்சம் டைம் வேணும்",
+      "id": "konjam-podunga",
+      "transliteration": "enakku konjam podunga",
+      "script": "எனக்கு கொஞ்சம் போடுங்க",
+      "ttsText": "எனக்கு கொஞ்சம் போடுங்க",
       "wordBreakdown": [
         { "word": "enakku", "meaning": "for me / to me" },
         { "word": "konjam", "meaning": "a little" },
-        { "word": "time", "meaning": "time" },
-        { "word": "venum", "meaning": "need / want" }
+        { "word": "podunga", "meaning": "please serve / put" }
       ],
-      "meaning": "I need a little time.",
-      "tone": "Casual, practical",
-      "useCase": "Useful when someone wants an answer or action immediately.",
-      "note": "This helps learners see how the same `venum` pattern works with many nouns."
+      "meaning": "Serve me a little.",
+      "tone": "Respectful, practical",
+      "useCase": "Useful when an elder or host is serving you food.",
+      "note": "This is a gentle, very reusable dinner-table request."
     },
     {
-      "id": "theriyala",
-      "transliteration": "enakku theriyala",
-      "script": "எனக்கு தெரியல",
-      "ttsText": "எனக்கு தெரியல",
+      "id": "innum-konjam-venum",
+      "transliteration": "innum konjam venum",
+      "script": "இன்னும் கொஞ்சம் வேணும்",
+      "ttsText": "இன்னும் கொஞ்சம் வேணும்",
       "wordBreakdown": [
-        { "word": "enakku", "meaning": "for me / to me" },
-        { "word": "theriyala", "meaning": "don't know" }
+        { "word": "innum", "meaning": "more / still" },
+        { "word": "konjam", "meaning": "a little" },
+        { "word": "venum", "meaning": "want / need" }
       ],
-      "meaning": "I don't know.",
-      "tone": "Neutral, honest",
-      "useCase": "A survival phrase and also an important sentence pattern.",
-      "note": "This is different from `puriyala`, which is more like 'I didn't understand.'"
+      "meaning": "I want a little more.",
+      "tone": "Casual, useful",
+      "useCase": "Use this when you want more food without sounding demanding.",
+      "note": "This is a nice way to practice the spoken `venum` pattern in a real situation."
     },
     {
-      "id": "puriyala",
-      "transliteration": "enakku puriyala",
-      "script": "எனக்கு புரியல",
-      "ttsText": "எனக்கு புரியல",
+      "id": "podhum",
+      "transliteration": "podhum",
+      "script": "போதும்",
+      "ttsText": "போதும்",
       "wordBreakdown": [
-        { "word": "enakku", "meaning": "for me / to me" },
-        { "word": "puriyala", "meaning": "don't understand" }
+        { "word": "podhum", "meaning": "enough / that's enough" }
       ],
-      "meaning": "I don't understand.",
-      "tone": "Neutral, honest",
-      "useCase": "Use this when you heard the words but did not understand the meaning.",
-      "note": "This is a core learner phrase and a strong sentence-building pattern."
+      "meaning": "That's enough.",
+      "tone": "Neutral, useful",
+      "useCase": "Say this when someone is serving you and you want them to stop.",
+      "note": "A tiny phrase, but extremely useful at home and when visiting people."
     },
     {
-      "id": "saapdren",
-      "transliteration": "naan ippo saapdren",
-      "script": "நான் இப்போ சாப்பிட்றேன்",
-      "ttsText": "நான் இப்போ சாப்பிட்றேன்",
+      "id": "rasam-kudunga",
+      "transliteration": "konjam rasam kudunga",
+      "script": "கொஞ்சம் ரசம் குடுங்க",
+      "ttsText": "கொஞ்சம் ரசம் குடுங்க",
+      "wordBreakdown": [
+        { "word": "konjam", "meaning": "a little" },
+        { "word": "rasam", "meaning": "rasam" },
+        { "word": "kudunga", "meaning": "please give" }
+      ],
+      "meaning": "Please give me a little rasam.",
+      "tone": "Respectful",
+      "useCase": "A specific food request that also teaches a broader request pattern.",
+      "note": "You can later swap `rasam` for many other food items and reuse the structure."
+    },
+    {
+      "id": "idhu-nalla-irukku",
+      "transliteration": "idhu romba nalla irukku",
+      "script": "இது ரொம்ப நல்லா இருக்கு",
+      "ttsText": "இது ரொம்ப நல்லா இருக்கு",
+      "wordBreakdown": [
+        { "word": "idhu", "meaning": "this" },
+        { "word": "romba", "meaning": "very / really" },
+        { "word": "nalla irukku", "meaning": "is good" }
+      ],
+      "meaning": "This is really good.",
+      "tone": "Warm, appreciative",
+      "useCase": "Use this to compliment a dish at home.",
+      "note": "Appreciation matters a lot in family settings, and this line is easy to use often."
+    },
+    {
+      "id": "kaarama-irukku",
+      "transliteration": "konjam kaarama irukku",
+      "script": "கொஞ்சம் காரமா இருக்கு",
+      "ttsText": "கொஞ்சம் காரமா இருக்கு",
+      "wordBreakdown": [
+        { "word": "konjam", "meaning": "a little" },
+        { "word": "kaarama", "meaning": "spicy" },
+        { "word": "irukku", "meaning": "it is" }
+      ],
+      "meaning": "It's a little spicy.",
+      "tone": "Casual, soft feedback",
+      "useCase": "A gentle way to comment on the food without sounding rude.",
+      "note": "This is more natural than a blunt complaint and keeps the tone soft."
+    },
+    {
+      "id": "already-saapten",
+      "transliteration": "naan already saapten",
+      "script": "நான் ஆல்ரெடி சாப்பிட்டேன்",
+      "ttsText": "நான் ஆல்ரெடி சாப்பிட்டேன்",
       "wordBreakdown": [
         { "word": "naan", "meaning": "I" },
-        { "word": "ippo", "meaning": "now" },
-        { "word": "saapdren", "meaning": "am eating" }
+        { "word": "already", "meaning": "already" },
+        { "word": "saapten", "meaning": "ate" }
       ],
-      "meaning": "I'm eating now.",
-      "tone": "Casual everyday Tamil",
-      "useCase": "Useful for learning how action verbs change in spoken Tamil.",
-      "note": "This helps learners hear a natural spoken form rather than a stiff textbook form."
-    },
-    {
-      "id": "busy-irukken",
-      "transliteration": "naan busy aa irukken",
-      "script": "நான் பிஸியா இருக்கேன்",
-      "ttsText": "நான் பிஸியா இருக்கேன்",
-      "wordBreakdown": [
-        { "word": "naan", "meaning": "I" },
-        { "word": "busy aa", "meaning": "busy" },
-        { "word": "irukken", "meaning": "am" }
-      ],
-      "meaning": "I'm busy.",
-      "tone": "Casual, modern spoken Tamil",
-      "useCase": "Use this when you want to say your current state without giving a long explanation.",
-      "note": "This gives the learner a very practical `irukken` structure."
-    },
-    {
-      "id": "ready-illa",
-      "transliteration": "naan ready illa",
-      "script": "நான் ரெடி இல்ல",
-      "ttsText": "நான் ரெடி இல்ல",
-      "wordBreakdown": [
-        { "word": "naan", "meaning": "I" },
-        { "word": "ready", "meaning": "ready" },
-        { "word": "illa", "meaning": "am not / not" }
-      ],
-      "meaning": "I'm not ready.",
+      "meaning": "I already ate.",
       "tone": "Casual, direct",
-      "useCase": "Useful for everyday home situations when someone is waiting on you.",
-      "note": "This is a nice bridge from fixed phrases into flexible self-statements."
+      "useCase": "Use this if someone offers you food after you already ate outside.",
+      "note": "Code-mixing with `already` is common in urban bilingual Tamil."
     },
     {
-      "id": "help-pannren",
-      "transliteration": "naan help pannren",
-      "script": "நான் ஹெல்ப் பண்றேன்",
-      "ttsText": "நான் ஹெல்ப் பண்றேன்",
+      "id": "vechudunga",
+      "transliteration": "vechudunga, apparam saapdren",
+      "script": "வெச்சுடுங்க, அப்பறம் சாப்பிட்றேன்",
+      "ttsText": "வெச்சுடுங்க, அப்பறம் சாப்பிட்றேன்",
       "wordBreakdown": [
-        { "word": "naan", "meaning": "I" },
-        { "word": "help", "meaning": "help" },
-        { "word": "pannren", "meaning": "am doing" }
+        { "word": "vechudunga", "meaning": "keep it / set it aside please" },
+        { "word": "apparam", "meaning": "later" },
+        { "word": "saapdren", "meaning": "I'll eat" }
       ],
-      "meaning": "I'm helping.",
-      "tone": "Warm, casual",
-      "useCase": "Useful when someone asks what you are doing or you want to describe your action.",
-      "note": "This reinforces how `pannren` can attach to many action ideas in spoken Tamil."
+      "meaning": "Keep it for me, I'll eat later.",
+      "tone": "Respectful, practical",
+      "useCase": "Useful when food is ready but you are not eating immediately.",
+      "note": "This is a realistic family line and quietly introduces near-future meaning."
     },
     {
-      "id": "seri-solren",
-      "transliteration": "seri, solren",
-      "script": "சரி, சொல்றேன்",
-      "ttsText": "சரி, சொல்றேன்",
+      "id": "venuma",
+      "transliteration": "unakku innum venuma?",
+      "script": "உனக்கு இன்னும் வேணுமா?",
+      "ttsText": "உனக்கு இன்னும் வேணுமா?",
       "wordBreakdown": [
-        { "word": "seri", "meaning": "okay / alright" },
-        { "word": "solren", "meaning": "I'll say / tell" }
+        { "word": "unakku", "meaning": "for you / to you" },
+        { "word": "innum", "meaning": "more / still" },
+        { "word": "venuma?", "meaning": "do you want?" }
       ],
-      "meaning": "Okay, I'll say/tell.",
-      "tone": "Casual, cooperative",
-      "useCase": "Use when someone asks you something and you are about to answer.",
-      "note": "A useful bridge phrase that helps the learner keep talking."
+      "meaning": "Do you want more?",
+      "tone": "Warm family question",
+      "useCase": "A common question you may hear while someone is serving food.",
+      "note": "This helps learners recognize what is being asked without needing every word explained in the moment."
     }
   ],
   "dialogues": [
     {
-      "prompt": "You want to say you are doing something right now.",
-      "context": "Which line gives the clearest everyday present-action pattern?",
+      "prompt": "Someone at home calls, 'saapida vaa.'",
+      "context": "You are finishing one quick thing and want to reply naturally.",
       "correctIndex": 0,
-      "explanation": "This is the simplest reusable present-action pattern in the lesson.",
+      "explanation": "This is the most natural immediate home reply when someone calls you to eat.",
       "answers": [
-        "naan ippo pannren",
-        "enakku theriyala",
-        "naan ready illa"
+        "ippo varen",
+        "podhum",
+        "konjam kaarama irukku"
       ]
     },
     {
-      "prompt": "Someone asks what you want.",
-      "context": "Which answer best shows the `venum` pattern?",
+      "prompt": "An elder is serving rice and you want a little more.",
+      "context": "Which line sounds clear and polite?",
       "correctIndex": 2,
-      "explanation": "This is the strongest example of the beginner-friendly `enakku ... venum` structure.",
+      "explanation": "This is the best direct request when someone is actively serving you.",
       "answers": [
-        "naan office ku poren",
-        "naan ippo varen",
-        "enakku coffee venum"
+        "podhum",
+        "naan already saapten",
+        "enakku konjam podunga"
       ]
     },
     {
-      "prompt": "You heard the Tamil words, but you still do not know what they mean.",
-      "context": "Which phrase fits best?",
+      "prompt": "Someone asks, 'unakku innum venuma?'",
+      "context": "You are full and want them to stop serving.",
       "correctIndex": 1,
-      "explanation": "Use `puriyala` for not understanding meaning; `theriyala` is closer to not knowing.",
+      "explanation": "This is the cleanest short way to say enough at the table.",
       "answers": [
-        "enakku theriyala",
-        "enakku puriyala",
-        "naan busy aa irukken"
+        "idhu romba nalla irukku",
+        "podhum",
+        "konjam rasam kudunga"
       ]
     },
     {
-      "prompt": "A family member is waiting and you want to say you're coming now.",
-      "context": "Which answer sounds most natural?",
-      "correctIndex": 2,
-      "explanation": "This is one of the most common short-response patterns in spoken home Tamil.",
+      "prompt": "You ate outside already, but someone is offering dinner at home.",
+      "context": "Which answer explains that most directly?",
+      "correctIndex": 0,
+      "explanation": "This is a realistic home reply when food is offered after you already ate.",
       "answers": [
-        "naan help pannren",
-        "naan office ku poren",
-        "naan ippo varen"
+        "naan already saapten",
+        "innum konjam venum",
+        "saapida vaa"
       ]
     }
   ],
   "recalls": [
     {
-      "prompt": "Say: 'I'm doing it now.'",
-      "transliteration": "naan ippo pannren",
-      "script": "நான் இப்போ பண்றேன்",
-      "note": "A core pattern for present action.",
-      "phraseId": "ippo-pannren"
+      "prompt": "Say: 'Come eat.'",
+      "transliteration": "saapida vaa",
+      "script": "சாப்பிட வா",
+      "note": "A very common family call when food is ready.",
+      "phraseId": "saapida-vaa"
     },
     {
-      "prompt": "Say: 'I want coffee.'",
-      "transliteration": "enakku coffee venum",
-      "script": "எனக்கு காபி வேணும்",
-      "note": "A high-value `venum` sentence frame.",
-      "phraseId": "coffee-venum"
+      "prompt": "Say: 'Serve me a little.'",
+      "transliteration": "enakku konjam podunga",
+      "script": "எனக்கு கொஞ்சம் போடுங்க",
+      "note": "Use the respectful serving request at the table.",
+      "phraseId": "konjam-podunga"
     },
     {
-      "prompt": "Say: 'I don't know.'",
-      "transliteration": "enakku theriyala",
-      "script": "எனக்கு தெரியல",
-      "note": "Short, essential, and very reusable.",
-      "phraseId": "theriyala"
+      "prompt": "Say: 'That's enough.'",
+      "transliteration": "podhum",
+      "script": "போதும்",
+      "note": "Short, practical, and very high value.",
+      "phraseId": "podhum"
     },
     {
-      "prompt": "Say: 'I'm coming now.'",
-      "transliteration": "naan ippo varen",
-      "script": "நான் இப்போ வரேன்",
-      "note": "A very common family/home response.",
-      "phraseId": "ippo-varen"
+      "prompt": "Say: 'I already ate.'",
+      "transliteration": "naan already saapten",
+      "script": "நான் ஆல்ரெடி சாப்பிட்டேன்",
+      "note": "A realistic line when someone offers food after you ate outside.",
+      "phraseId": "already-saapten"
     }
   ]
 }

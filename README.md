@@ -1,10 +1,10 @@
 # Learn Tamil at Home
 
-A website-ready spoken Tamil prototype for English-dominant learners who do not read Tamil script, with three local ElevenLabs-backed practice lessons and one OpenSLR native-audio experiment kept alongside them.
+A website-ready spoken Tamil prototype for English-dominant learners who do not read Tamil script, with four local ElevenLabs-backed practice lessons and one OpenSLR native-audio experiment kept alongside them.
 
 ## What is in this prototype
 
-- three Chennai-leaning spoken Tamil lessons wired for local ElevenLabs audio
+- four Chennai-leaning spoken Tamil lessons wired for local ElevenLabs audio
 - one OpenSLR native-audio experiment lesson
 - lesson tabs for moving across modules in the same app shell
 - transliteration-first phrase cards with optional Tamil script toggle for builder review
@@ -31,7 +31,8 @@ Then open the main app:
 
 You can switch lessons from the in-app lesson tabs, or open them directly:
 
-- `http://localhost:8000` for lesson 1
+- `http://localhost:8000` for lesson 0
+- `http://localhost:8000/?lesson=lesson-01` for lesson 1
 - `http://localhost:8000/?lesson=lesson-02` for lesson 2
 - `http://localhost:8000/?lesson=lesson-03` for lesson 3
 - `http://localhost:8000/?lesson=lesson-openslr` for the OpenSLR experiment
@@ -43,7 +44,7 @@ For ElevenLabs-backed lessons:
 1. Copy `.env.example` to `.env.local` if you want a local-only config, or add the same variables to `.env`.
 2. Set `ELEVENLABS_API_KEY` and `ELEVENLABS_VOICE_ID`.
 3. Run `python3 serve.py`.
-4. Open lesson 1, 2, or 3 and click any phrase to generate and cache audio locally.
+4. Open lessons 0 through 3 and click any card to generate and cache audio locally.
 
 The server reads `.env.local` first and then `.env`. Generated audio is cached under `generated-audio/` and ignored by git.
 
@@ -54,9 +55,10 @@ For the OpenSLR experiment:
 
 ## Current lesson set
 
+- `lesson-00`: Quick-start Tamil words
 - `lesson-01`: Coming home and talking to family
 - `lesson-02`: Common family questions and replies
-- `lesson-03`: Core verbs and sentence patterns
+- `lesson-03`: At the dinner table
 - `lesson-openslr`: Open-license native clip test
 
 ## Website hosting
@@ -81,7 +83,7 @@ Important limitation:
 
 ## Live hosting with ElevenLabs
 
-If you want lessons 1 through 3 audio to work for other people on a public URL, deploy the Python server instead of only hosting the static files.
+If you want lessons 0 through 3 audio to work for other people on a public URL, deploy the Python server instead of only hosting the static files.
 
 This repo is set up for a single-service Render deploy:
 
@@ -102,7 +104,7 @@ Important deployment notes:
 
 This project currently supports two audio paths:
 
-1. Local ElevenLabs generation for lessons 1 through 3.
+1. Local ElevenLabs generation for lessons 0 through 3.
 2. OpenSLR WAV clips in `audio/openslr65/` for testing authentic native audio.
 
 The frontend supports slow and normal playback for both modes.
@@ -111,6 +113,7 @@ The frontend supports slow and normal playback for both modes.
 
 The lessons currently live in:
 
+- `data/lessons/lesson-00.json`
 - `data/lessons/lesson-01.json`
 - `data/lessons/lesson-02.json`
 - `data/lessons/lesson-03.json`
